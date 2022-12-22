@@ -9,16 +9,65 @@
 /* Begin PBXBuildFile section */
 		250B50D02953D12500397038 /* CarTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50CF2953D12500397038 /* CarTubeApp.swift */; };
 		250B50D22953D12500397038 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50D12953D12500397038 /* ContentView.swift */; };
-		250B50D42953D12800397038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B50D32953D12800397038 /* Assets.xcassets */; };
 		250B50D72953D12800397038 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B50D62953D12800397038 /* Preview Assets.xcassets */; };
+		250B50E72953D24A00397038 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50E62953D24A00397038 /* Alert.swift */; };
+		250B50EC2953D29100397038 /* CarPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50E92953D29100397038 /* CarPlayViewController.swift */; };
+		250B50ED2953D29100397038 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50EA2953D29100397038 /* CarPlaySceneDelegate.swift */; };
+		250B50EE2953D29100397038 /* CarPlaySingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50EB2953D29100397038 /* CarPlaySingleton.swift */; };
+		250B50F22953D2F600397038 /* AdBlocker.js in Resources */ = {isa = PBXBuildFile; fileRef = 250B50F02953D2F600397038 /* AdBlocker.js */; };
+		250B50F32953D2F600397038 /* SponsorBlock.js in Resources */ = {isa = PBXBuildFile; fileRef = 250B50F12953D2F600397038 /* SponsorBlock.js */; };
+		250B50F52953D37A00397038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B50F42953D37A00397038 /* Assets.xcassets */; };
+		250B50FE2953D59B00397038 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250B50FD2953D59B00397038 /* UniformTypeIdentifiers.framework */; };
+		250B510A2953D59B00397038 /* OpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 250B50FB2953D59B00397038 /* OpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		250B51142953D5BC00397038 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B51102953D5BC00397038 /* ActionViewController.swift */; };
+		250B51152953D5BC00397038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B51112953D5BC00397038 /* Assets.xcassets */; };
+		250B511A2953D7B900397038 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250B51192953D7B900397038 /* MainInterface.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		250B51082953D59B00397038 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 250B50C42953D12500397038 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 250B50FA2953D59B00397038;
+			remoteInfo = OpenIn;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		250B510E2953D59B00397038 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				250B510A2953D59B00397038 /* OpenIn.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		250B50CC2953D12500397038 /* CarTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		250B50CF2953D12500397038 /* CarTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTubeApp.swift; sourceTree = "<group>"; };
 		250B50D12953D12500397038 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		250B50D32953D12800397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		250B50D62953D12800397038 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		250B50DD2953D19E00397038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		250B50E62953D24A00397038 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = ../../TrollTube/TrollTube/Alert.swift; sourceTree = "<group>"; };
+		250B50E82953D26200397038 /* CarTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarTube.entitlements; sourceTree = "<group>"; };
+		250B50E92953D29100397038 /* CarPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayViewController.swift; sourceTree = "<group>"; };
+		250B50EA2953D29100397038 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
+		250B50EB2953D29100397038 /* CarPlaySingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlaySingleton.swift; sourceTree = "<group>"; };
+		250B50F02953D2F600397038 /* AdBlocker.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AdBlocker.js; sourceTree = "<group>"; };
+		250B50F12953D2F600397038 /* SponsorBlock.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SponsorBlock.js; sourceTree = "<group>"; };
+		250B50F42953D37A00397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../TrollTube/TrollTube/Assets.xcassets; sourceTree = "<group>"; };
+		250B50FB2953D59B00397038 /* OpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		250B50FD2953D59B00397038 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		250B51102953D5BC00397038 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		250B51112953D5BC00397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		250B51192953D7B900397038 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		2578407829540CC900357803 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +78,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		250B50F82953D59B00397038 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250B50FE2953D59B00397038 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -36,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				250B50CE2953D12500397038 /* CarTube */,
+				250B50FF2953D59B00397038 /* OpenIn */,
+				250B50FC2953D59B00397038 /* Frameworks */,
 				250B50CD2953D12500397038 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				250B50CC2953D12500397038 /* CarTube.app */,
+				250B50FB2953D59B00397038 /* OpenIn.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,9 +111,15 @@
 		250B50CE2953D12500397038 /* CarTube */ = {
 			isa = PBXGroup;
 			children = (
+				250B50DD2953D19E00397038 /* Info.plist */,
+				250B50EF2953D2F600397038 /* Scripts */,
+				2578407729540CC200357803 /* Tools */,
+				250B50F62953D3D800397038 /* CarPlay */,
+				250B50E82953D26200397038 /* CarTube.entitlements */,
+				250B50E62953D24A00397038 /* Alert.swift */,
 				250B50CF2953D12500397038 /* CarTubeApp.swift */,
 				250B50D12953D12500397038 /* ContentView.swift */,
-				250B50D32953D12800397038 /* Assets.xcassets */,
+				250B50F42953D37A00397038 /* Assets.xcassets */,
 				250B50D52953D12800397038 /* Preview Content */,
 			);
 			path = CarTube;
@@ -67,6 +133,51 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		250B50EF2953D2F600397038 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				250B50F02953D2F600397038 /* AdBlocker.js */,
+				250B50F12953D2F600397038 /* SponsorBlock.js */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		250B50F62953D3D800397038 /* CarPlay */ = {
+			isa = PBXGroup;
+			children = (
+				250B50E92953D29100397038 /* CarPlayViewController.swift */,
+				250B50EA2953D29100397038 /* CarPlaySceneDelegate.swift */,
+				250B50EB2953D29100397038 /* CarPlaySingleton.swift */,
+			);
+			path = CarPlay;
+			sourceTree = "<group>";
+		};
+		250B50FC2953D59B00397038 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				250B50FD2953D59B00397038 /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		250B50FF2953D59B00397038 /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				250B51102953D5BC00397038 /* ActionViewController.swift */,
+				250B51112953D5BC00397038 /* Assets.xcassets */,
+				250B51192953D7B900397038 /* MainInterface.storyboard */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2578407729540CC200357803 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2578407829540CC900357803 /* Alert.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +188,34 @@
 				250B50C82953D12500397038 /* Sources */,
 				250B50C92953D12500397038 /* Frameworks */,
 				250B50CA2953D12500397038 /* Resources */,
+				250B510E2953D59B00397038 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				250B51092953D59B00397038 /* PBXTargetDependency */,
 			);
 			name = CarTube;
 			productName = CarTube;
 			productReference = 250B50CC2953D12500397038 /* CarTube.app */;
 			productType = "com.apple.product-type.application";
+		};
+		250B50FA2953D59B00397038 /* OpenIn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 250B510B2953D59B00397038 /* Build configuration list for PBXNativeTarget "OpenIn" */;
+			buildPhases = (
+				250B50F72953D59B00397038 /* Sources */,
+				250B50F82953D59B00397038 /* Frameworks */,
+				250B50F92953D59B00397038 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenIn;
+			productName = OpenIn;
+			productReference = 250B50FB2953D59B00397038 /* OpenIn.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +229,10 @@
 				TargetAttributes = {
 					250B50CB2953D12500397038 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					250B50FA2953D59B00397038 = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -116,6 +250,7 @@
 			projectRoot = "";
 			targets = (
 				250B50CB2953D12500397038 /* CarTube */,
+				250B50FA2953D59B00397038 /* OpenIn */,
 			);
 		};
 /* End PBXProject section */
@@ -126,7 +261,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				250B50D72953D12800397038 /* Preview Assets.xcassets in Resources */,
-				250B50D42953D12800397038 /* Assets.xcassets in Resources */,
+				250B50F32953D2F600397038 /* SponsorBlock.js in Resources */,
+				250B50F22953D2F600397038 /* AdBlocker.js in Resources */,
+				250B50F52953D37A00397038 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250B50F92953D59B00397038 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250B51152953D5BC00397038 /* Assets.xcassets in Resources */,
+				250B511A2953D7B900397038 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,12 +283,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250B50E72953D24A00397038 /* Alert.swift in Sources */,
+				250B50EC2953D29100397038 /* CarPlayViewController.swift in Sources */,
 				250B50D22953D12500397038 /* ContentView.swift in Sources */,
 				250B50D02953D12500397038 /* CarTubeApp.swift in Sources */,
+				250B50EE2953D29100397038 /* CarPlaySingleton.swift in Sources */,
+				250B50ED2953D29100397038 /* CarPlaySceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250B50F72953D59B00397038 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250B51142953D5BC00397038 /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		250B51092953D59B00397038 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 250B50FA2953D59B00397038 /* OpenIn */;
+			targetProxy = 250B51082953D59B00397038 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		250B50D82953D12800397038 /* Debug */ = {
@@ -178,6 +344,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = CarTube/CarTube.entitlements;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -196,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -239,6 +406,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = CarTube/CarTube.entitlements;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -251,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -264,55 +432,122 @@
 		250B50DB2953D12800397038 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CarTube/CarTube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CarTube/Preview Content\"";
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = CarTube/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.CarTube;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.TrollTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		250B50DC2953D12800397038 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CarTube/CarTube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CarTube/Preview Content\"";
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = CarTube/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.CarTube;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.TrollTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		250B510C2953D59B00397038 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U67AKNW8PW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenIn/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Open in CarTube";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.TrollTube.OpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		250B510D2953D59B00397038 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U67AKNW8PW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenIn/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Open in CarTube";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.TrollTube.OpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -336,6 +571,15 @@
 			buildConfigurations = (
 				250B50DB2953D12800397038 /* Debug */,
 				250B50DC2953D12800397038 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		250B510B2953D59B00397038 /* Build configuration list for PBXNativeTarget "OpenIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250B510C2953D59B00397038 /* Debug */,
+				250B510D2953D59B00397038 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
