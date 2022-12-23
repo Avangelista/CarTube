@@ -506,7 +506,7 @@
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenIn/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Open in CarTube";
+				INFOPLIST_KEY_CFBundleDisplayName = "Play on CarPlay";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,7 +536,7 @@
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenIn/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Open in CarTube";
+				INFOPLIST_KEY_CFBundleDisplayName = "Play on CarPlay";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
