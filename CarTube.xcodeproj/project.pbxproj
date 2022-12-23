@@ -53,7 +53,6 @@
 		250B50CF2953D12500397038 /* CarTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTubeApp.swift; sourceTree = "<group>"; };
 		250B50D12953D12500397038 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		250B50D62953D12800397038 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		250B50DD2953D19E00397038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		250B50E62953D24A00397038 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = ../../TrollTube/TrollTube/Alert.swift; sourceTree = "<group>"; };
 		250B50E82953D26200397038 /* CarTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarTube.entitlements; sourceTree = "<group>"; };
 		250B50E92953D29100397038 /* CarPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		250B51112953D5BC00397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		250B51192953D7B900397038 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		2578407829540CC900357803 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		257E37DD2955590F00D50AD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../TrollTube/OpenLink/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,6 @@
 		250B50CE2953D12500397038 /* CarTube */ = {
 			isa = PBXGroup;
 			children = (
-				250B50DD2953D19E00397038 /* Info.plist */,
 				250B50EF2953D2F600397038 /* Scripts */,
 				2578407729540CC200357803 /* Tools */,
 				250B50F62953D3D800397038 /* CarPlay */,
@@ -166,6 +165,7 @@
 				250B51102953D5BC00397038 /* ActionViewController.swift */,
 				250B51112953D5BC00397038 /* Assets.xcassets */,
 				250B51192953D7B900397038 /* MainInterface.storyboard */,
+				257E37DD2955590F00D50AD8 /* Info.plist */,
 			);
 			path = OpenIn;
 			sourceTree = "<group>";
