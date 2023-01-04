@@ -10,11 +10,9 @@
 		250B50D02953D12500397038 /* CarTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50CF2953D12500397038 /* CarTubeApp.swift */; };
 		250B50D22953D12500397038 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50D12953D12500397038 /* ContentView.swift */; };
 		250B50D72953D12800397038 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B50D62953D12800397038 /* Preview Assets.xcassets */; };
-		250B50E72953D24A00397038 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50E62953D24A00397038 /* Alert.swift */; };
 		250B50EC2953D29100397038 /* CarPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50E92953D29100397038 /* CarPlayViewController.swift */; };
 		250B50ED2953D29100397038 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50EA2953D29100397038 /* CarPlaySceneDelegate.swift */; };
 		250B50EE2953D29100397038 /* CarPlaySingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B50EB2953D29100397038 /* CarPlaySingleton.swift */; };
-		250B50F22953D2F600397038 /* AdBlocker.js in Resources */ = {isa = PBXBuildFile; fileRef = 250B50F02953D2F600397038 /* AdBlocker.js */; };
 		250B50F32953D2F600397038 /* SponsorBlock.js in Resources */ = {isa = PBXBuildFile; fileRef = 250B50F12953D2F600397038 /* SponsorBlock.js */; };
 		250B50F52953D37A00397038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B50F42953D37A00397038 /* Assets.xcassets */; };
 		250B50FE2953D59B00397038 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250B50FD2953D59B00397038 /* UniformTypeIdentifiers.framework */; };
@@ -22,6 +20,14 @@
 		250B51142953D5BC00397038 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B51102953D5BC00397038 /* ActionViewController.swift */; };
 		250B51152953D5BC00397038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B51112953D5BC00397038 /* Assets.xcassets */; };
 		250B511A2953D7B900397038 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250B51192953D7B900397038 /* MainInterface.storyboard */; };
+		2582148C296559EA00610408 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578407829540CC900357803 /* Alert++.swift */; };
+		25821490296567EC00610408 /* Incrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582148F296567EC00610408 /* Incrementer.swift */; };
+		2583A814296633B100EBEFB9 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A813296633B100EBEFB9 /* String++.swift */; };
+		2583C1EB2966278C00E3D17C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583C1EA2966278C00E3D17C /* Utilities.swift */; };
+		2587378A2964F03D009EAA2A /* NoSleepEnable.js in Resources */ = {isa = PBXBuildFile; fileRef = 258737892964EA02009EAA2A /* NoSleepEnable.js */; };
+		259385A52961A4BB0029C763 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259385A42961A4BB0029C763 /* KeyboardView.swift */; };
+		25EED73A295F05AA00C0DF56 /* CustomLayout.js in Resources */ = {isa = PBXBuildFile; fileRef = 25EED739295F059A00C0DF56 /* CustomLayout.js */; };
+		25F18067295EC2A5007B9940 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 25F18066295EC2A5007B9940 /* Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +59,10 @@
 		250B50CF2953D12500397038 /* CarTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTubeApp.swift; sourceTree = "<group>"; };
 		250B50D12953D12500397038 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		250B50D62953D12800397038 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		250B50E62953D24A00397038 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = ../../TrollTube/TrollTube/Alert.swift; sourceTree = "<group>"; };
 		250B50E82953D26200397038 /* CarTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarTube.entitlements; sourceTree = "<group>"; };
 		250B50E92953D29100397038 /* CarPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlayViewController.swift; sourceTree = "<group>"; };
 		250B50EA2953D29100397038 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		250B50EB2953D29100397038 /* CarPlaySingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPlaySingleton.swift; sourceTree = "<group>"; };
-		250B50F02953D2F600397038 /* AdBlocker.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AdBlocker.js; sourceTree = "<group>"; };
 		250B50F12953D2F600397038 /* SponsorBlock.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = SponsorBlock.js; sourceTree = "<group>"; };
 		250B50F42953D37A00397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../TrollTube/TrollTube/Assets.xcassets; sourceTree = "<group>"; };
 		250B50FB2953D59B00397038 /* OpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,8 +70,14 @@
 		250B51102953D5BC00397038 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		250B51112953D5BC00397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		250B51192953D7B900397038 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		2578407829540CC900357803 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		2578407829540CC900357803 /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		257E37DD2955590F00D50AD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../TrollTube/OpenLink/Info.plist; sourceTree = "<group>"; };
+		2582148F296567EC00610408 /* Incrementer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incrementer.swift; sourceTree = "<group>"; };
+		2583A813296633B100EBEFB9 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
+		2583C1EA2966278C00E3D17C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		258737892964EA02009EAA2A /* NoSleepEnable.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = NoSleepEnable.js; sourceTree = "<group>"; };
+		259385A42961A4BB0029C763 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		25EED739295F059A00C0DF56 /* CustomLayout.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = CustomLayout.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F18067295EC2A5007B9940 /* Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,15 +122,15 @@
 		250B50CE2953D12500397038 /* CarTube */ = {
 			isa = PBXGroup;
 			children = (
+				2582148B2965595F00610408 /* Views */,
 				250B50EF2953D2F600397038 /* Scripts */,
 				2578407729540CC200357803 /* Tools */,
 				250B50F62953D3D800397038 /* CarPlay */,
 				250B50E82953D26200397038 /* CarTube.entitlements */,
-				250B50E62953D24A00397038 /* Alert.swift */,
 				250B50CF2953D12500397038 /* CarTubeApp.swift */,
-				250B50D12953D12500397038 /* ContentView.swift */,
 				250B50F42953D37A00397038 /* Assets.xcassets */,
 				250B50D52953D12800397038 /* Preview Content */,
+				2583C1EA2966278C00E3D17C /* Utilities.swift */,
 			);
 			path = CarTube;
 			sourceTree = "<group>";
@@ -135,8 +146,9 @@
 		250B50EF2953D2F600397038 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				250B50F02953D2F600397038 /* AdBlocker.js */,
+				258737892964EA02009EAA2A /* NoSleepEnable.js */,
 				250B50F12953D2F600397038 /* SponsorBlock.js */,
+				25EED739295F059A00C0DF56 /* CustomLayout.js */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -147,6 +159,7 @@
 				250B50E92953D29100397038 /* CarPlayViewController.swift */,
 				250B50EA2953D29100397038 /* CarPlaySceneDelegate.swift */,
 				250B50EB2953D29100397038 /* CarPlaySingleton.swift */,
+				259385A42961A4BB0029C763 /* KeyboardView.swift */,
 			);
 			path = CarPlay;
 			sourceTree = "<group>";
@@ -173,9 +186,19 @@
 		2578407729540CC200357803 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				2578407829540CC900357803 /* Alert.swift */,
+				2578407829540CC900357803 /* Alert++.swift */,
+				2583A813296633B100EBEFB9 /* String++.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		2582148B2965595F00610408 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				250B50D12953D12500397038 /* ContentView.swift */,
+				2582148F296567EC00610408 /* Incrementer.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +219,9 @@
 				250B51092953D59B00397038 /* PBXTargetDependency */,
 			);
 			name = CarTube;
+			packageProductDependencies = (
+				25F18066295EC2A5007B9940 /* Dynamic */,
+			);
 			productName = CarTube;
 			productReference = 250B50CC2953D12500397038 /* CarTube.app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +271,9 @@
 				Base,
 			);
 			mainGroup = 250B50C32953D12500397038;
+			packageReferences = (
+				25F18065295EC2A5007B9940 /* XCRemoteSwiftPackageReference "Dynamic" */,
+			);
 			productRefGroup = 250B50CD2953D12500397038 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,10 +289,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2587378A2964F03D009EAA2A /* NoSleepEnable.js in Resources */,
 				250B50D72953D12800397038 /* Preview Assets.xcassets in Resources */,
 				250B50F32953D2F600397038 /* SponsorBlock.js in Resources */,
-				250B50F22953D2F600397038 /* AdBlocker.js in Resources */,
 				250B50F52953D37A00397038 /* Assets.xcassets in Resources */,
+				25EED73A295F05AA00C0DF56 /* CustomLayout.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,11 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				250B50E72953D24A00397038 /* Alert.swift in Sources */,
+				259385A52961A4BB0029C763 /* KeyboardView.swift in Sources */,
+				25821490296567EC00610408 /* Incrementer.swift in Sources */,
 				250B50EC2953D29100397038 /* CarPlayViewController.swift in Sources */,
+				2583A814296633B100EBEFB9 /* String++.swift in Sources */,
 				250B50D22953D12500397038 /* ContentView.swift in Sources */,
 				250B50D02953D12500397038 /* CarTubeApp.swift in Sources */,
 				250B50EE2953D29100397038 /* CarPlaySingleton.swift in Sources */,
+				2582148C296559EA00610408 /* Alert++.swift in Sources */,
+				2583C1EB2966278C00E3D17C /* Utilities.swift in Sources */,
 				250B50ED2953D29100397038 /* CarPlaySceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,10 +475,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CarTube/Preview Content\"";
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarTube/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Reading now playing";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used for voice search, etc.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = microphone;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -474,10 +512,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CarTube/Preview Content\"";
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarTube/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Reading now playing";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used for voice search, etc.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = microphone;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -585,6 +627,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25F18065295EC2A5007B9940 /* XCRemoteSwiftPackageReference "Dynamic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mhdhejazi/Dynamic";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25F18066295EC2A5007B9940 /* Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25F18065295EC2A5007B9940 /* XCRemoteSwiftPackageReference "Dynamic" */;
+			productName = Dynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 250B50C42953D12500397038 /* Project object */;
 }

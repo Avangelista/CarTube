@@ -6,32 +6,24 @@
 //
 
 import SwiftUI
+import Dynamic
+import MediaPlayer
+import CoreFoundation
 
 struct ContentView: View {
     private let defaults = UserDefaults.standard
     
     @Environment(\.openURL) var openURL
+    @Environment(\.scenePhase) var scenePhase
     
     @State private var urlString: String = ""
+    @State private var zoom = UserDefaults.standard.integer(forKey: "zoom")
     @State private var sponsorBlockOn = UserDefaults.standard.bool(forKey: "SponsorBlockOn")
-    @State private var adBlockerOn = UserDefaults.standard.bool(forKey: "AdBlockerOn")
-    
-    func extractVideoID(from link: String) -> String? {
-        let regex = try! NSRegularExpression(pattern: "^(?:https?://)?(?:www\\.)?(?:m\\.|www\\.|)(?:youtu\\.be/|youtube\\.com/(?:embed/|v/|watch\\?v=|watch\\?.+&v=))((\\w|-){11})(?:\\S+)?$")
-        guard let match = regex.firstMatch(in: link, range: NSRange(link.startIndex..., in: link)) else { return nil }
-        guard let range = Range(match.range(at: 1), in: link) else { return nil }
-        return String(link[range])
-    }
     
     func playVideo() {
-        if !CarPlaySingleton.shared.isCarPlayConnected() {
-            UIApplication.shared.alert(body: "Phone is not connected to CarPlay.")
-            return
-        }
-        
-        if let urlID = self.extractVideoID(from: urlString) {
-            let youtube = "https://www.youtube.com/embed/" + urlID + "?controls=0"
-            CarPlaySingleton.shared.loadUrlString(urlString: youtube)
+        if let urlID = CarPlaySingleton.extractVideoID(from: urlString) {
+            let youtube = "https://www.youtube.com/embed/" + urlID
+            CarPlaySingleton.shared.loadVideo(urlString: youtube)
         } else {
             UIApplication.shared.alert(body: "Invalid YouTube link.")
         }
@@ -39,8 +31,12 @@ struct ContentView: View {
     
     func saveSettings() {
         defaults.set(sponsorBlockOn, forKey: "SponsorBlockOn")
-        defaults.set(adBlockerOn, forKey: "AdBlockerOn")
-        exit(0)
+        defaults.set(zoom, forKey: "zoom")
+        // Exit gracefully
+        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            exit(0)
+        }
     }
     
     var body: some View {
@@ -53,14 +49,21 @@ struct ContentView: View {
                     }
                 }
                 Section(header: Text("Settings")) {
+                    Incrementer(value: $zoom)
                     Toggle(isOn: $sponsorBlockOn) {
                         Text("SponsorBlock")
                     }
-                    Toggle(isOn: $adBlockerOn) {
-                        Text("Ad Blocker")
-                    }
                     Button("Save") {
-                        saveSettings()
+                        isAutoBrightnessEnabled()
+//                        saveSettings()
+                    }
+                }
+                Section(header: Text("Debug")) {
+                    Button("Toggle Keyboard") {
+                        CarPlaySingleton.shared.toggleKeyboard()
+                    }
+                    Button("YouTube Homepage") {
+                        CarPlaySingleton.shared.goHome()
                     }
                 }
             }.navigationTitle("CarTube")
@@ -87,6 +90,21 @@ struct ContentView: View {
                             .frame(width: 20, height: 20)
                     }
                 }
+            }
+        }.onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                let clipboard = UIPasteboard.general
+                if clipboard.hasURLs {
+                    if let clipboardUrl = clipboard.url {
+                        if CarPlaySingleton.extractVideoID(from: clipboardUrl.absoluteString) != nil {
+                            urlString = clipboardUrl.absoluteString
+                        }
+                    }
+                }
+            } else if newPhase == .inactive {
+                print("Inactive")
+            } else if newPhase == .background {
+                print("Background")
             }
         }
     }

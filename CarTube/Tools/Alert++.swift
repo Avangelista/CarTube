@@ -1,9 +1,8 @@
 //
-//  Alert.swift
-//  Appabetical
+//  Alert++.swift
+//  Evyrest
 //
-//  Credit to SourceLocation
-//  https://github.com/sourcelocation/AirTroller/blob/main/AirTroller/Misc/Alert.swift
+//  Created by exerhythm on 14.12.2022.
 //
 
 import UIKit
@@ -23,11 +22,11 @@ extension UIApplication {
             self.present(alert: currentUIAlertController!)
         }
     }
-    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool) {
+    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool = false) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if !noCancel {
-                currentUIAlertController?.addAction(.init(title: "Cancel", style: .cancel))
+                currentUIAlertController?.addAction(.init(title: "No", style: .cancel))
             }
             currentUIAlertController?.addAction(.init(title: "Yes", style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
@@ -43,6 +42,7 @@ extension UIApplication {
     }
     
     func present(alert: UIAlertController) {
+        alert.view.tintColor = .label
         if var topController = self.windows[0].rootViewController {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController

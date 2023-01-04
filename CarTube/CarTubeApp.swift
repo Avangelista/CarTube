@@ -23,8 +23,8 @@ struct CarTubeApp: App {
                     if id.count != 11 {
                         UIApplication.shared.alert(body: "Invalid YouTube link.")
                     } else {
-                        let youtube = "https://www.youtube.com/embed/" + id + "?controls=0"
-                        CarPlaySingleton.shared.loadUrlString(urlString: youtube)
+                        let youtube = "https://www.youtube.com/embed/" + id
+                        CarPlaySingleton.shared.loadVideo(urlString: youtube)
                     }
                 }
             }
@@ -34,7 +34,7 @@ struct CarTubeApp: App {
     func registerDefaults() {
         UserDefaults.standard.register(defaults: [
             "SponsorBlockOn": true,
-            "AdBlockerOn": true
+            "zoom": 80
         ])
     }
 }

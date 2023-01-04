@@ -7,42 +7,90 @@
 
 import Foundation
 import CarPlay
+import Dynamic
 
 class CarPlaySingleton {
     static let shared = CarPlaySingleton()
-    private var window: CPWindow?
+    private var window: UIWindow?
     private var controller: CarPlayViewController?
-    private var urlString: String?
+    private var cachedVideo: String?
     
-    func loadUrlString(urlString: String) {
-        if controller != nil {
-            controller?.loadUrl(urlString: urlString)
+    func loadVideo(urlString: String) {
+        if (Dynamic.AVExternalDevice.currentCarPlayExternalDevice.asAnyObject == nil) {
+            UIApplication.shared.alert(body: "CarPlay not connected.")
+        } else if controller == nil {
+            self.cachedVideo = urlString
         } else {
-            self.urlString = urlString
+            controller?.loadUrl(urlString: urlString)
         }
+    }
+    
+    func searchVideo(search: String) {
+        let searchString = "https://m.youtube.com/results?search_query=\(search)"
+        guard let safeSearch = searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        loadVideo(urlString: safeSearch)
+    }
+    
+    func checkIfScreenOff() {
+        controller?.checkIfScreenOff()
+    }
+    
+    func sendInput(input: String) {
+        controller?.sendInput(input: input)
+    }
+    
+    func backspaceInput() {
+        controller?.backspaceInput()
+    }
+    
+    func submitInput() {
+        controller?.submitInput()
+    }
+    
+    func goHome() {
+        controller?.loadUrl(urlString: "https://m.youtube.com/")
+    }
+    
+    func toggleKeyboard() {
+        controller?.toggleKeyboard()
+    }
+    
+    func getCachedVideo() -> String? {
+        return cachedVideo
+    }
+    
+    func clearCachedVideo() {
+        cachedVideo = nil
     }
     
     func isCarPlayConnected() -> Bool {
         return controller != nil
     }
     
-    func storedUrl() -> String? {
-        return urlString
-    }
-    
     func setCPVC(controller: CarPlayViewController) {
         self.controller = controller
+    }
+    
+    func getCPVC() -> CarPlayViewController? {
+        return self.controller
     }
     
     func removeCPVC() {
         self.controller = nil
     }
 
-    func setWindow(window: CPWindow) {
+    func setWindow(window: UIWindow) {
         self.window = window
     }
     
-    func getWindow() -> CPWindow? {
+    func getWindow() -> UIWindow? {
         return self.window
+    }
+    
+    static func extractVideoID(from link: String) -> String? {
+        let regex = try! NSRegularExpression(pattern: "^(?:https?://)?(?:www\\.)?(?:m\\.|www\\.|)(?:youtu\\.be/|youtube\\.com/(?:embed/|v/|watch\\?v=|watch\\?.+&v=))((\\w|-){11})(?:\\S+)?$")
+        guard let match = regex.firstMatch(in: link, range: NSRange(link.startIndex..., in: link)) else { return nil }
+        guard let range = Range(match.range(at: 1), in: link) else { return nil }
+        return String(link[range])
     }
 }
