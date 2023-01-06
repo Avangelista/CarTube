@@ -38,6 +38,21 @@ func registerForLockNotification(callback: @escaping () -> Void) {
         var state: Int64 = 0
         notify_get_state(token, &state)
         let deviceLocked = state == 1
+        let brightness = getScreenBrightness()
+        if deviceLocked && brightness == 0 {
+//        if deviceLocked {
+            callback()
+        }
+    })
+}
+
+/// Register a specified function to be run when the screen unlocks
+func registerForUnlockNotification(callback: @escaping () -> Void) {
+    var notify_token: Int32 = 0
+    notify_register_dispatch("com.apple.springboard.lockstate", &notify_token, DispatchQueue.main, { token in
+        var state: Int64 = 0
+        notify_get_state(token, &state)
+        let deviceLocked = state == 0
         if deviceLocked {
             callback()
         }
@@ -92,14 +107,27 @@ func setScreenBrightness(_ brightness: Float) {
 
 /// Check if auto-brightness is enabled
 func isAutoBrightnessEnabled() -> Bool {
-    let kABSAutoBrightnessKey = "BKEnableALS" as CFString
-    let kABSBackboard = "com.apple.backboardd" as CFString
+    let autoBrightnessKey = "BKEnableALS" as CFString
+    let backboardd = "com.apple.backboardd" as CFString
     var keyExists: DarwinBoolean = false
-    let enabled = CFPreferencesGetAppBooleanValue(kABSAutoBrightnessKey, kABSBackboard, &keyExists)
+    let enabled = CFPreferencesGetAppBooleanValue(autoBrightnessKey, backboardd, &keyExists)
     if keyExists.boolValue {
         return enabled
     }
     return false
+}
+
+/// Retrieve brightness from settings, as this will return the saved value even with the screen off
+func getSettingsBrightness() -> Float {
+    let brightnessKey1 = "SBBacklightLevel" as CFString
+    let brightnessKey2 = "SBBacklightLevel2" as CFString
+    let springboard = "com.apple.springboard" as CFString
+    if let brightness1 = CFPreferencesCopyAppValue(brightnessKey1, springboard) as? Float {
+        return brightness1
+    } else if let brightness2 = CFPreferencesCopyAppValue(brightnessKey2, springboard) as? Float {
+        return brightness2
+    }
+    return 0
 }
 
 /// Enable or disable auto-brightness
@@ -116,10 +144,12 @@ func setAutoBrightness(_ on: Bool) {
 
 /// Get information on the currently playing song
 func getNowPlaying(completion: @escaping (Result<(title: String, artist: String, bundleID: String), Error>) -> Void) {
+    // TODO:
+    
     let bundle = CFBundleCreate(kCFAllocatorDefault, NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MediaRemote.framework"))
 
     guard let MRMediaRemoteGetNowPlayingInfoPointer = CFBundleGetFunctionPointerForName(bundle, "MRMediaRemoteGetNowPlayingInfo" as CFString) else {
-        completion(.failure("Nothing playing"))
+        completion(.failure("Error"))
         return
     }
     typealias MRMediaRemoteGetNowPlayingInfoFunction = @convention(c) (DispatchQueue, @escaping ([String: Any]) -> Void) -> Void
@@ -142,16 +172,3 @@ func getNowPlaying(completion: @escaping (Result<(title: String, artist: String,
         completion(.success((title, artist, bundleID)))
     })
 }
-
-// use:
-//getNowPlaying { result in
-//    switch result {
-//    case .success(let nowPlaying):
-//        print(nowPlaying.title)
-//        print(nowPlaying.artist)
-//        print(nowPlaying.bundleID)
-//    case .failure(let error):
-//        print(error)
-//    }
-//}
-

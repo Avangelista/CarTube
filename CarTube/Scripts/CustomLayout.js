@@ -1,31 +1,32 @@
-// Custom style
-let head = document.head;
-let css = document.createElement('style');
-css.type = "text/css";
-css.innerHTML = `
-    .ytp-impression-link {
-        display: none;
-    }
-    .ytp-pause-overlay {
-        display: none;
-    }
-    .ytp-right-controls {
-        display: none;
-    }
-    .ytp-ce-element {
-        display: none;
-    }
-    .ytp-large-play-button {
-        display: none;
-    }
-    .ytp-cued-thumbnail-overlay {
-        display: none;
-    }
-`
-head.appendChild(css);
-
 if (location.href.toString().includes("youtube.com/embed")) {
-    
+    // Custom style
+    let head = document.head;
+    let css = document.createElement('style');
+    css.type = "text/css";
+    css.innerHTML = `
+        .ytp-impression-link {
+            display: none;
+        }
+        .ytp-pause-overlay {
+            display: none;
+        }
+        .ytp-right-controls {
+            display: none;
+        }
+        .ytp-chrome-top-buttons {
+            display: none;
+        }
+        .ytp-ce-element {
+            display: none;
+        }
+        .ytp-large-play-button {
+            display: none;
+        }
+        .ytp-cued-thumbnail-overlay {
+            display: none;
+        }
+    `
+    head.appendChild(css);
 } else if (location.href.toString().includes("youtube.com")) {
     // Fix for UIScrollView's aggressive scroll button placement
     // Set webView.scrollView.isScrollEnabled = false and use this code
@@ -50,14 +51,14 @@ if (location.href.toString().includes("youtube.com/embed")) {
         const walk = y - startY;
         if (walk > 10) {
             window.scrollBy({
-              top: -200,
+              top: -(window.outerHeight / 2),
               behavior: 'smooth'
             })
             didScroll = true;
             isDown = false; // only scroll one at a time
         } else if (walk < -10) {
             window.scrollBy({
-              top: 200,
+              top: (window.outerHeight / 2),
               behavior: 'smooth'
             })
             didScroll = true;
@@ -83,14 +84,31 @@ if (location.href.toString().includes("youtube.com/embed")) {
     observer.observe(document, config);
 }
 
+const isTextInput = el => el.tagName === "TEXTAREA" || (el.tagName === "INPUT" && (el.type === "text" || el.type === "email" || el.type === "search" || el.type === "url" || el.type === "password"));
+
+// Focusing a text field
 window.addEventListener("focus", e => {
-    if (e.target.tagName === "INPUT") {
+    if (isTextInput(e.target)) {
         window.webkit.messageHandlers.keyboard.postMessage("show")
     }
 }, true)
 
+// Tapping a text field
+window.addEventListener("click", e => {
+    if (isTextInput(e.target)) {
+        window.webkit.messageHandlers.keyboard.postMessage("show")
+    }
+}, true)
+
+// Leaving a text field
 window.addEventListener("blur", e => {
-    if (e.target.tagName === "INPUT") {
+    if (isTextInput(e.target)) {
         window.webkit.messageHandlers.keyboard.postMessage("hide")
     }
 }, true)
+
+// Text field was selected on load
+if (isTextInput(document.activeElement)) {
+    window.webkit.messageHandlers.keyboard.postMessage("show")
+}
+

@@ -9,20 +9,25 @@ import UIKit
 
 var currentUIAlertController: UIAlertController?
 
+enum WindowType {
+    case main
+    case carPlay
+}
+
 extension UIApplication {
     func dismissAlert(animated: Bool) {
         DispatchQueue.main.async {
             currentUIAlertController?.dismiss(animated: animated)
         }
     }
-    func alert(title: String = "Error", body: String, animated: Bool = true, withButton: Bool = true) {
+    func alert(title: String = "Error", body: String, animated: Bool = true, withButton: Bool = true, window: WindowType = .main) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if withButton { currentUIAlertController?.addAction(.init(title: "OK", style: .cancel)) }
-            self.present(alert: currentUIAlertController!)
+            self.present(alert: currentUIAlertController!, window: window)
         }
     }
-    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool = false) {
+    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool = false, window: WindowType = .main) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if !noCancel {
@@ -31,7 +36,7 @@ extension UIApplication {
             currentUIAlertController?.addAction(.init(title: "Yes", style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
             }))
-            self.present(alert: currentUIAlertController!)
+            self.present(alert: currentUIAlertController!, window: window)
         }
     }
     func change(title: String = "Error", body: String) {
@@ -41,9 +46,35 @@ extension UIApplication {
         }
     }
     
-    func present(alert: UIAlertController) {
+    func getPreferredController(window: WindowType) -> UIViewController? {
+        if let controller = self.windows[0].rootViewController {
+            if controller is CarPlayViewController {
+                if window == .carPlay {
+                    return controller
+                }
+            } else {
+                if window == .main {
+                    return controller
+                }
+            }
+        }
+        if self.windows.count > 1, let controller = self.windows[1].rootViewController {
+            if controller is CarPlayViewController {
+                if window == .carPlay {
+                    return controller
+                }
+            } else {
+                if window == .main {
+                    return controller
+                }
+            }
+        }
+        return nil
+    }
+    
+    func present(alert: UIAlertController, window: WindowType) {
         alert.view.tintColor = .label
-        if var topController = self.windows[0].rootViewController {
+        if var topController = getPreferredController(window: window) {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }

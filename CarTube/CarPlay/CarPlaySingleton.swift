@@ -14,43 +14,91 @@ class CarPlaySingleton {
     private var window: UIWindow?
     private var controller: CarPlayViewController?
     private var cachedVideo: String?
+    private var initialBrightness: Float?
+    private var initialAutoBrightness: Bool?
+    private var isCPWindowActive: Bool = false
     
-    func loadVideo(urlString: String) {
+    /// Load a YouTube URL string into the player
+    func loadUrl(_ urlString: String) {
         if (Dynamic.AVExternalDevice.currentCarPlayExternalDevice.asAnyObject == nil) {
-            UIApplication.shared.alert(body: "CarPlay not connected.")
+            UIApplication.shared.alert(body: "CarPlay not connected.", window: .main)
         } else if controller == nil {
             self.cachedVideo = urlString
         } else {
-            controller?.loadUrl(urlString: urlString)
+            controller?.loadUrl(urlString)
         }
     }
     
-    func searchVideo(search: String) {
-        let searchString = "https://m.youtube.com/results?search_query=\(search)"
+    /// Search for a YouTube video in the player
+    func searchVideo(_ search: String) {
+        let searchString = YT_SEARCH + search
         guard let safeSearch = searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        loadVideo(urlString: safeSearch)
+        loadUrl(safeSearch)
     }
     
-    func checkIfScreenOff() {
-        controller?.checkIfScreenOff()
+    func setCPWindowActive(_ active: Bool) {
+        self.isCPWindowActive = active
     }
     
-    func sendInput(input: String) {
-        controller?.sendInput(input: input)
+    func saveInitialBrightness() {
+        initialBrightness = getSettingsBrightness()
+        initialAutoBrightness = isAutoBrightnessEnabled()
     }
     
+    func setLowBrightness() {
+        if UserDefaults.standard.bool(forKey: "LockScreenDimmingOn"), isCPWindowActive {
+            if isAutoBrightnessEnabled() {
+                setAutoBrightness(false)
+            }
+            setScreenBrightness(0.01)
+        }
+    }
+    
+    func restoreBrightness() {
+        if UserDefaults.standard.bool(forKey: "LockScreenDimmingOn"), isCPWindowActive {
+            if initialAutoBrightness ?? false && !isAutoBrightnessEnabled() {
+                setAutoBrightness(true)
+            }
+            setScreenBrightness(initialBrightness ?? 0.5)
+        }
+    }
+    
+    func disablePersistence() {
+        if UserDefaults.standard.bool(forKey: "ScreenPersistenceOn") {
+            self.controller?.disablePersistence()
+        }
+    }
+    
+    func enablePersistence() {
+        if UserDefaults.standard.bool(forKey: "ScreenPersistenceOn") {
+            self.controller?.enablePersistence()
+        }
+    }
+    
+    func showScreenOffWarning() {
+        self.controller?.showWarningLabel()
+    }
+    
+    /// Send keyboard input to the web view
+    func sendInput(_ input: String) {
+        controller?.sendInput(input)
+    }
+    
+    /// Send a backspace to the web view
     func backspaceInput() {
         controller?.backspaceInput()
     }
     
-    func submitInput() {
-        controller?.submitInput()
-    }
-    
+    /// Go back to the homepage on the web view
     func goHome() {
-        controller?.loadUrl(urlString: "https://m.youtube.com/")
+        controller?.goHome()
     }
     
+    func goBack() {
+        controller?.goBack()
+    }
+    
+    /// Toggle the web view keyboard
     func toggleKeyboard() {
         controller?.toggleKeyboard()
     }
@@ -63,10 +111,6 @@ class CarPlaySingleton {
         cachedVideo = nil
     }
     
-    func isCarPlayConnected() -> Bool {
-        return controller != nil
-    }
-    
     func setCPVC(controller: CarPlayViewController) {
         self.controller = controller
     }
@@ -77,20 +121,5 @@ class CarPlaySingleton {
     
     func removeCPVC() {
         self.controller = nil
-    }
-
-    func setWindow(window: UIWindow) {
-        self.window = window
-    }
-    
-    func getWindow() -> UIWindow? {
-        return self.window
-    }
-    
-    static func extractVideoID(from link: String) -> String? {
-        let regex = try! NSRegularExpression(pattern: "^(?:https?://)?(?:www\\.)?(?:m\\.|www\\.|)(?:youtu\\.be/|youtube\\.com/(?:embed/|v/|watch\\?v=|watch\\?.+&v=))((\\w|-){11})(?:\\S+)?$")
-        guard let match = regex.firstMatch(in: link, range: NSRange(link.startIndex..., in: link)) else { return nil }
-        guard let range = Range(match.range(at: 1), in: link) else { return nil }
-        return String(link[range])
     }
 }

@@ -10,37 +10,5 @@
 	<true/>
 	<key>com.apple.multitasking.systemappassertions</key>
 	<true/>
-	<key>com.apple.backboard.client</key>
-	<true/>
-	<key>com.apple.backboard.displaybrightness</key>
-	<true/>
-	<key>com.apple.springboard-ui.client</key>
-	<true/>
-	<key>com.apple.springboard.lockScreenContentAssertion</key>
-	<true/>
-	<key>platform-application</key>
-	<true/>
-	<key>com.apple.private.security.container-manager</key>
-	<true/>
-	<key>com.apple.private.security.no-container</key>
-	<true/>
-	<key>com.apple.bulletinboard.systemstate</key>
-	<true/>
-	<key>com.apple.bulletinboard</key>
-	<true/>
-	<key>com.apple.bulletinboard.utilities</key>
-	<true/>
-	<key>com.apple.carousel.backlightaccess</key>
-	<true/>
-	<key>com.apple.private.bmk.allow</key>
-	<true/>
-	<key>com.apple.private.followup</key>
-	<true/>
-	<key>com.apple.private.hid.client.service-protected</key>
-	<true/>
-	<key>com.apple.private.hid.manager.client</key>
-	<true/>
-	<key>com.apple.private.tcc.manager</key>
-	<true/>
 </dict>
 </plist>

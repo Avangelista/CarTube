@@ -23,9 +23,13 @@
 		2582148C296559EA00610408 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578407829540CC900357803 /* Alert++.swift */; };
 		25821490296567EC00610408 /* Incrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582148F296567EC00610408 /* Incrementer.swift */; };
 		2583A814296633B100EBEFB9 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A813296633B100EBEFB9 /* String++.swift */; };
+		2583A81729663D0C00EBEFB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A81629663D0C00EBEFB9 /* Constants.swift */; };
+		2583A819296659CE00EBEFB9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A818296659CE00EBEFB9 /* Settings.swift */; };
 		2583C1EB2966278C00E3D17C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583C1EA2966278C00E3D17C /* Utilities.swift */; };
 		2587378A2964F03D009EAA2A /* NoSleepEnable.js in Resources */ = {isa = PBXBuildFile; fileRef = 258737892964EA02009EAA2A /* NoSleepEnable.js */; };
 		259385A52961A4BB0029C763 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259385A42961A4BB0029C763 /* KeyboardView.swift */; };
+		25A2A5932967917B004A9AB1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A5922967917B004A9AB1 /* Debug.swift */; };
+		25A2A59529679BF2004A9AB1 /* HowTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A59429679BF2004A9AB1 /* HowTo.swift */; };
 		25EED73A295F05AA00C0DF56 /* CustomLayout.js in Resources */ = {isa = PBXBuildFile; fileRef = 25EED739295F059A00C0DF56 /* CustomLayout.js */; };
 		25F18067295EC2A5007B9940 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 25F18066295EC2A5007B9940 /* Dynamic */; };
 /* End PBXBuildFile section */
@@ -74,9 +78,13 @@
 		257E37DD2955590F00D50AD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../TrollTube/OpenLink/Info.plist; sourceTree = "<group>"; };
 		2582148F296567EC00610408 /* Incrementer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incrementer.swift; sourceTree = "<group>"; };
 		2583A813296633B100EBEFB9 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
+		2583A81629663D0C00EBEFB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2583A818296659CE00EBEFB9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2583C1EA2966278C00E3D17C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		258737892964EA02009EAA2A /* NoSleepEnable.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = NoSleepEnable.js; sourceTree = "<group>"; };
 		259385A42961A4BB0029C763 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		25A2A5922967917B004A9AB1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		25A2A59429679BF2004A9AB1 /* HowTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowTo.swift; sourceTree = "<group>"; };
 		25EED739295F059A00C0DF56 /* CustomLayout.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = CustomLayout.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,8 +137,8 @@
 				250B50E82953D26200397038 /* CarTube.entitlements */,
 				250B50CF2953D12500397038 /* CarTubeApp.swift */,
 				250B50F42953D37A00397038 /* Assets.xcassets */,
+				2583A81529663CF300EBEFB9 /* Util */,
 				250B50D52953D12800397038 /* Preview Content */,
-				2583C1EA2966278C00E3D17C /* Utilities.swift */,
 			);
 			path = CarTube;
 			sourceTree = "<group>";
@@ -197,8 +205,20 @@
 			children = (
 				250B50D12953D12500397038 /* ContentView.swift */,
 				2582148F296567EC00610408 /* Incrementer.swift */,
+				2583A818296659CE00EBEFB9 /* Settings.swift */,
+				25A2A5922967917B004A9AB1 /* Debug.swift */,
+				25A2A59429679BF2004A9AB1 /* HowTo.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2583A81529663CF300EBEFB9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2583C1EA2966278C00E3D17C /* Utilities.swift */,
+				2583A81629663D0C00EBEFB9 /* Constants.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,10 +334,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				259385A52961A4BB0029C763 /* KeyboardView.swift in Sources */,
+				2583A81729663D0C00EBEFB9 /* Constants.swift in Sources */,
 				25821490296567EC00610408 /* Incrementer.swift in Sources */,
 				250B50EC2953D29100397038 /* CarPlayViewController.swift in Sources */,
 				2583A814296633B100EBEFB9 /* String++.swift in Sources */,
+				25A2A59529679BF2004A9AB1 /* HowTo.swift in Sources */,
 				250B50D22953D12500397038 /* ContentView.swift in Sources */,
+				25A2A5932967917B004A9AB1 /* Debug.swift in Sources */,
+				2583A819296659CE00EBEFB9 /* Settings.swift in Sources */,
 				250B50D02953D12500397038 /* CarTubeApp.swift in Sources */,
 				250B50EE2953D29100397038 /* CarPlaySingleton.swift in Sources */,
 				2582148C296559EA00610408 /* Alert++.swift in Sources */,
