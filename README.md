@@ -9,7 +9,10 @@
 - Works on any device supporting [TrollStore](https://github.com/opa334/TrollStore), no jailbreak required
 - No ads
 - Skip sponsored segments with SponsorBlock
-- If you were watching something on the YouTube app and then get in the car, it'll pop up on CarTube
+- System integrations:
+  - "Open in CarTube" extension
+  - Instant paste of any copied YouTube URLs
+  - If you were watching something on the YouTube app and then get in the car, it'll pop up on CarTube
 
 ## Issues
 - Videos where the uploader has disabled embedding unfortunately will not work
