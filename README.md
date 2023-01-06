@@ -10,7 +10,7 @@
 - No ads
 - Skip sponsored segments with SponsorBlock
 - System integrations:
-  - "Open in CarTube" extension
+  - "Play on CarPlay" share extension
   - Instant paste of any copied YouTube URLs
   - If you were watching something on the YouTube app and then get in the car, it'll pop up on CarTube
 
@@ -18,6 +18,8 @@
 - Videos where the uploader has disabled embedding unfortunately will not work
 - Sometimes autoplay may not work, just hit the play button if you get a black screen
 - Possible issues with being signed out very quickly
+- "Play on CarPlay" share extension works everywhere... except the YT app
+  - oh well YT share menu sucks anyway, it's faster to copy the link
 
 ## Credits
 - [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
