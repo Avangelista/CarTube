@@ -14,6 +14,7 @@
 ## Issues
 - Videos where the uploader has disabled embedding unfortunately will not work
 - Sometimes autoplay may not work, just hit the play button if you get a black screen
+- Possible issues with being signed out very quickly
 
 ## Credits
 - [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
