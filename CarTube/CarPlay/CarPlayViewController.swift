@@ -84,7 +84,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         noSleepView.load(URLRequest(url: URL(string: "about:blank")!))
         view.addSubview(noSleepView)
         noSleepView.isHidden = true
-        CarPlaySingleton.shared.enablePersistence()
+//        CarPlaySingleton.shared.enablePersistence()
         
         // Add a view for our keyboard
         let keyboardController = UIHostingController(rootView: KeyboardView(width: view.bounds.width))
@@ -121,6 +121,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 guard let sleepDisabledNoSleepView = Dynamic(self.noSleepView)._hasSleepDisabler.asBool else { return }
                 guard let sleepDisabledWebView = Dynamic(self.webView)._hasSleepDisabler.asBool else { return }
+//                print("\(sleepDisabledWebView || sleepDisabledNoSleepView)")
                 if sleepDisabledWebView {
                     self.noSleepView.evaluateJavaScript("noSleep.disable()")
                 }
@@ -149,9 +150,6 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     // Send a backspace to the web view
     func backspaceInput() {
         self.webView.evaluateJavaScript("document.execCommand('delete')")
-//        self.webView.evaluateJavaScript("document.activeElement.value = document.activeElement.value.slice(0, -1);")
-//        Dynamic(self.webView)._simulateTextEntered("\0") // dumb but necessary for search results to update as we type
-//        self.webView.evaluateJavaScript("document.activeElement.value = document.activeElement.value.slice(0, -1);")
     }
     
     // Go to YouTube homepage
@@ -197,6 +195,10 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     // Perform any necessary tricks after a page finishes loading
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let url = webView.url else { goHome(); return }
+        
+        // idk
+        self.webView.evaluateJavaScript("let metaTag = document.getElementsByTagName('meta')[0]; const metaContent = metaTag.getAttribute('content'); if (metaContent === '') { metaTag.setAttribute('content', 'user-scalable=no') } else { metaContent += ', user-scalable=no'; metaTag.setAttribute('content', metaContent) }")
+        
         // Check we're on an embedded video
         if url.absoluteString.contains(YT_EMBED) {
             // Check for errors playing video (e.g. if the uploader has disabled embedding)
@@ -212,6 +214,8 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
                     return
                 }
             }
+            // Dumb fix but sometimes the persistence helper steals the focus from the video, so force it to play
+            self.webView.evaluateJavaScript("document.getElementsByTagName('video')[0].addEventListener('loadeddata', (e) => { for (let i = 0; i < 6; i++) { setTimeout(function() { e.target.play() }, 200 * i) } })")
             // Press play
             self.webView.evaluateJavaScript("document.getElementsByClassName('ytp-large-play-button')[0].click()")
             // Create close button
@@ -225,7 +229,6 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             guard let urlString = navigationAction.request.url?.absoluteString else { return nil }
             if let urlID = extractYouTubeVideoID(urlString) {
                 let youtube = YT_EMBED + urlID
-                print(youtube)
                 loadUrl(youtube)
             } else {
                 loadUrl(urlString)

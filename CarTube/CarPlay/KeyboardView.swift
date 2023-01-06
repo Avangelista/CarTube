@@ -58,8 +58,8 @@ struct KeyboardView: View {
         CarPlaySingleton.shared.toggleKeyboard()
     }
     
-    func MakeKBBtn(label: String? = nil, image: Image? = nil, maxWidth: CGFloat? = nil, action: (() -> Void)? = nil) -> KBBtn {
-        return KBBtn(label: shifted ? label?.uppercased() : label, image: image, maxWidth: maxWidth, action: action ?? { sendKey(key: label != nil ? label! : "") })
+    func MakeKBBtn(label: String? = nil, affectedByShift: Bool = true, image: Image? = nil, maxWidth: CGFloat? = nil, action: (() -> Void)? = nil) -> KBBtn {
+        return KBBtn(label: affectedByShift && shifted ? label?.uppercased() : label, image: image, maxWidth: maxWidth, action: action ?? { sendKey(key: label ?? "") })
     }
     
     var body: some View {
@@ -101,7 +101,7 @@ struct KeyboardView: View {
                 }
                 HStack(spacing: 0) {
                     MakeKBBtn(image: Image(systemName: "textformat.123"), maxWidth: width / 9, action: { setKeyboardMode(.symbols1) })
-                    MakeKBBtn(image: Image(systemName: "space"), action: { sendKey(key:" ") })
+                    MakeKBBtn(label: "space", affectedByShift: false, action: { sendKey(key:" ") })
                     MakeKBBtn(image: Image(systemName: "keyboard.chevron.compact.down"), maxWidth: width / 9, action: { dismiss() })
                 }
             }
@@ -142,7 +142,7 @@ struct KeyboardView: View {
                 }
                 HStack(spacing: 0) {
                     MakeKBBtn(image: Image(systemName: "abc"), maxWidth: width / 9, action: { setKeyboardMode(.letters) })
-                    MakeKBBtn(image: Image(systemName: "space"), action: { sendKey(key:" ") })
+                    MakeKBBtn(label: "space", affectedByShift: false, action: { sendKey(key:" ") })
                     MakeKBBtn(image: Image(systemName: "keyboard.chevron.compact.down"), maxWidth: width / 9, action: { dismiss() })
                 }
             }
@@ -183,7 +183,7 @@ struct KeyboardView: View {
                 }
                 HStack(spacing: 0) {
                     MakeKBBtn(image: Image(systemName: "abc"), maxWidth: width / 9, action: { setKeyboardMode(.letters) })
-                    MakeKBBtn(image: Image(systemName: "space"), action: { sendKey(key:" ") })
+                    MakeKBBtn(label: "space", affectedByShift: false, action: { sendKey(key:" ") })
                     MakeKBBtn(image: Image(systemName: "keyboard.chevron.compact.down"), maxWidth: width / 9, action: { dismiss() })
                 }
             }

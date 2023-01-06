@@ -52,8 +52,8 @@ func registerForUnlockNotification(callback: @escaping () -> Void) {
     notify_register_dispatch("com.apple.springboard.lockstate", &notify_token, DispatchQueue.main, { token in
         var state: Int64 = 0
         notify_get_state(token, &state)
-        let deviceLocked = state == 0
-        if deviceLocked {
+        let deviceUnlocked = state == 0
+        if deviceUnlocked {
             callback()
         }
     })
@@ -74,7 +74,6 @@ func isScreenLocked() -> Bool {
     var passcodeEnabled: ObjCBool = false
     let SBGetScreenLockStatus = unsafeBitCast(s2, to: (@convention(c) (mach_port_t, UnsafeMutablePointer<ObjCBool>, UnsafeMutablePointer<ObjCBool>) -> Void).self)
     SBGetScreenLockStatus(SBSSpringBoardServerPort(), &lockStatus, &passcodeEnabled)
-    
     return lockStatus.boolValue
 }
 
@@ -93,6 +92,7 @@ func getScreenBrightness() -> Float {
 }
 
 /// Set the current display brightness
+/// Requires entitlement "com.apple.backboard.displaybrightness"
 func setScreenBrightness(_ brightness: Float) {
     guard brightness >= 0, brightness <= 1 else { return }
     let bbs = dlopen("/System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices", RTLD_LAZY)
@@ -106,6 +106,7 @@ func setScreenBrightness(_ brightness: Float) {
 }
 
 /// Check if auto-brightness is enabled
+/// Requires entitlements "platform-application", "com.apple.private.security.no-container"
 func isAutoBrightnessEnabled() -> Bool {
     let autoBrightnessKey = "BKEnableALS" as CFString
     let backboardd = "com.apple.backboardd" as CFString
@@ -118,6 +119,7 @@ func isAutoBrightnessEnabled() -> Bool {
 }
 
 /// Retrieve brightness from settings, as this will return the saved value even with the screen off
+/// Requires entitlements "platform-application", "com.apple.private.security.no-container"
 func getSettingsBrightness() -> Float {
     let brightnessKey1 = "SBBacklightLevel" as CFString
     let brightnessKey2 = "SBBacklightLevel2" as CFString
@@ -131,6 +133,7 @@ func getSettingsBrightness() -> Float {
 }
 
 /// Enable or disable auto-brightness
+/// Requires entitlement "com.apple.backboard.displaybrightness"
 func setAutoBrightness(_ on: Bool) {
     let bbs = dlopen("/System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices", RTLD_LAZY)
     defer {
@@ -144,8 +147,6 @@ func setAutoBrightness(_ on: Bool) {
 
 /// Get information on the currently playing song
 func getNowPlaying(completion: @escaping (Result<(title: String, artist: String, bundleID: String), Error>) -> Void) {
-    // TODO:
-    
     let bundle = CFBundleCreate(kCFAllocatorDefault, NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MediaRemote.framework"))
 
     guard let MRMediaRemoteGetNowPlayingInfoPointer = CFBundleGetFunctionPointerForName(bundle, "MRMediaRemoteGetNowPlayingInfo" as CFString) else {

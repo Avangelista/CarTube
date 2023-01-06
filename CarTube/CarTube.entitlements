@@ -8,5 +8,11 @@
 	<true/>
 	<key>com.apple.multitasking.systemappassertions</key>
 	<true/>
+	<key>com.apple.backboard.displaybrightness</key>
+	<true/>
+	<key>platform-application</key>
+	<true/>
+	<key>com.apple.private.security.no-container</key>
+	<true/>
 </dict>
 </plist>

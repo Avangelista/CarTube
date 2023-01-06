@@ -33,6 +33,7 @@ class ActionViewController: UIViewController {
                                 let scheme = "cartube://"
                                 let newUrl: URL = URL(string: scheme)!
                                 self.openApp(url: newUrl)
+                                
                             }
                         }
                     }

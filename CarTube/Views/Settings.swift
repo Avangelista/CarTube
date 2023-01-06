@@ -32,7 +32,7 @@ struct Settings: View {
                         Text("SponsorBlock")
                     }
                 }
-                Section(footer: Text("RECOMMENDED.\nCarTube requires the phone screen to be on at all times.\nThe Screen Persistence Helper will keep the phone screen on, even on the Lock Screen.\nShorts will not work with this enabled.")) {
+                Section(footer: Text("RECOMMENDED.\nCarTube requires the phone screen to be on at all times.\nThe Screen Persistence Helper will keep the phone screen on, even on the Lock Screen.")) {
                     Toggle(isOn: $screenPersistenceOn) {
                         Text("Screen Persistence Helper")
                     }

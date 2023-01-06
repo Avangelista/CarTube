@@ -15,7 +15,7 @@ struct HowTo: View {
         Form {
             List {
                 Section {
-                    Text("CarTube requires your phone screen to be on at all times. But don't worry, it takes care of this itself - you don't have to ever open this app again if you don't want to.\n\nCarTube will keep your phone screen on with your Lock Screen dimmed while it's running, and will let you know if there's anything you need to do.\n\nFor example, if you get in your car, plug in your phone, and start the app on CarPlay, it will ask you once to tap your phone to wake the screen, but that's all you'll have to do - CarTube will keep the Lock Screen on and dimmed indefinitely so you can enjoy YouTube uninterrupted.")
+                    Text("Get in your car, plug in your phone, and start CarTube on CarPlay. It will ask you to tap your phone once to wake the screen, but that's all you'll have to do. Enjoy a full-feature YouTube experience in the car!\n\nUsing the app on CarPlay requires your phone screen to be on at all times. Don't worry, it'll do this automatically. CarTube will keep your phone screen on with your Lock Screen dimmed, and will let you know if there's anything else you need to do.")
                 }
                 Section {
                     Button("View Source on GitHub") {
