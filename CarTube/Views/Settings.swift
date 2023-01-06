@@ -32,12 +32,12 @@ struct Settings: View {
                         Text("SponsorBlock")
                     }
                 }
-                Section(footer: Text("CarTube requires the phone screen to be on at all times.\nThe Screen Persistence Helper will keep the phone screen on, even on the Lock Screen.\nShorts will not work with this enabled.")) {
+                Section(footer: Text("RECOMMENDED.\nCarTube requires the phone screen to be on at all times.\nThe Screen Persistence Helper will keep the phone screen on, even on the Lock Screen.\nShorts will not work with this enabled.")) {
                     Toggle(isOn: $screenPersistenceOn) {
                         Text("Screen Persistence Helper")
                     }
                 }
-                Section(footer: Text("Dim the Lock Screen while the app is running.")) {
+                Section(footer: Text("RECOMMENDED.\nDim the Lock Screen while the app is running.")) {
                     Toggle(isOn: $lockScreenDimmingOn) {
                         Text("Lock Screen Dimming")
                     }

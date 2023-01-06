@@ -20,9 +20,9 @@
 		250B51142953D5BC00397038 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B51102953D5BC00397038 /* ActionViewController.swift */; };
 		250B51152953D5BC00397038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250B51112953D5BC00397038 /* Assets.xcassets */; };
 		250B511A2953D7B900397038 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250B51192953D7B900397038 /* MainInterface.storyboard */; };
+		255396962967BA8B00E49F9E /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255396952967BA8B00E49F9E /* String++.swift */; };
 		2582148C296559EA00610408 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578407829540CC900357803 /* Alert++.swift */; };
 		25821490296567EC00610408 /* Incrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582148F296567EC00610408 /* Incrementer.swift */; };
-		2583A814296633B100EBEFB9 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A813296633B100EBEFB9 /* String++.swift */; };
 		2583A81729663D0C00EBEFB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A81629663D0C00EBEFB9 /* Constants.swift */; };
 		2583A819296659CE00EBEFB9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583A818296659CE00EBEFB9 /* Settings.swift */; };
 		2583C1EB2966278C00E3D17C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2583C1EA2966278C00E3D17C /* Utilities.swift */; };
@@ -74,10 +74,10 @@
 		250B51102953D5BC00397038 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		250B51112953D5BC00397038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		250B51192953D7B900397038 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		255396952967BA8B00E49F9E /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		2578407829540CC900357803 /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		257E37DD2955590F00D50AD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../TrollTube/OpenLink/Info.plist; sourceTree = "<group>"; };
 		2582148F296567EC00610408 /* Incrementer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incrementer.swift; sourceTree = "<group>"; };
-		2583A813296633B100EBEFB9 /* String++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		2583A81629663D0C00EBEFB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2583A818296659CE00EBEFB9 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2583C1EA2966278C00E3D17C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			children = (
 				2582148B2965595F00610408 /* Views */,
 				250B50EF2953D2F600397038 /* Scripts */,
-				2578407729540CC200357803 /* Tools */,
+				255396972967C15700E49F9E /* Extensions */,
 				250B50F62953D3D800397038 /* CarPlay */,
 				250B50E82953D26200397038 /* CarTube.entitlements */,
 				250B50CF2953D12500397038 /* CarTubeApp.swift */,
@@ -191,13 +191,13 @@
 			path = OpenIn;
 			sourceTree = "<group>";
 		};
-		2578407729540CC200357803 /* Tools */ = {
+		255396972967C15700E49F9E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				2578407829540CC900357803 /* Alert++.swift */,
-				2583A813296633B100EBEFB9 /* String++.swift */,
+				255396952967BA8B00E49F9E /* String++.swift */,
 			);
-			path = Tools;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2582148B2965595F00610408 /* Views */ = {
@@ -333,11 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255396962967BA8B00E49F9E /* String++.swift in Sources */,
 				259385A52961A4BB0029C763 /* KeyboardView.swift in Sources */,
 				2583A81729663D0C00EBEFB9 /* Constants.swift in Sources */,
 				25821490296567EC00610408 /* Incrementer.swift in Sources */,
 				250B50EC2953D29100397038 /* CarPlayViewController.swift in Sources */,
-				2583A814296633B100EBEFB9 /* String++.swift in Sources */,
 				25A2A59529679BF2004A9AB1 /* HowTo.swift in Sources */,
 				250B50D22953D12500397038 /* ContentView.swift in Sources */,
 				25A2A5932967917B004A9AB1 /* Debug.swift in Sources */,

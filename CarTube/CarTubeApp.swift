@@ -49,8 +49,6 @@ struct CarTubeApp: App {
         ])
     }
     
-    // Credit to SourceLocation
-    // https://github.com/sourcelocation/AirTroller/blob/main/AirTroller/AirTrollerApp.swift
     func checkNewVersions() {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/Avangelista/CarTube/releases/latest") {
             let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
