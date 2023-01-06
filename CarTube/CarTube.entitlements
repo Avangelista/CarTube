@@ -4,8 +4,6 @@
 <dict>
 	<key>SBStarkCapable</key>
 	<true/>
-	<key>CARCapableApp</key>
-	<true/>
 	<key>com.apple.runningboard.assertions.webkit</key>
 	<true/>
 	<key>com.apple.multitasking.systemappassertions</key>
