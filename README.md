@@ -20,6 +20,7 @@
 - Possible issues with being signed out very quickly
 - "Play on CarPlay" share extension works everywhere... except the YT app
   - oh well YT share menu sucks anyway, it's faster to copy the link
+- Possible issues from activating Siri inside the app, nothing major, just may break the screen persistence helper
 
 ## Credits
 - [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
