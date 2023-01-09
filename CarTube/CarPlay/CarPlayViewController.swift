@@ -5,12 +5,9 @@
 //  Created by Rory Madden on 20/12/22.
 //
 
-import Foundation
-import UIKit
 import WebKit
 import Dynamic
 import SwiftUI
-import notify
 
 // This is the view controller shown on an in car's head unit display with CarPlay.
 class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
@@ -26,6 +23,9 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         
         // Register self as the CarPlay view controller
         CarPlaySingleton.shared.setCPVC(controller: self)
+        
+        // Check if the user was watching YouTube before they got in the car
+        CarPlaySingleton.shared.checkIfYouTubePlaying()
         
         // Set up the main webview
         
@@ -121,7 +121,6 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 guard let sleepDisabledNoSleepView = Dynamic(self.noSleepView)._hasSleepDisabler.asBool else { return }
                 guard let sleepDisabledWebView = Dynamic(self.webView)._hasSleepDisabler.asBool else { return }
-//                print("\(sleepDisabledWebView || sleepDisabledNoSleepView)")
                 if sleepDisabledWebView {
                     self.noSleepView.evaluateJavaScript("noSleep.disable()")
                 }
@@ -135,7 +134,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     // Warn the user to tap their screen
     func showWarningLabel() {
         self.screenOffLabel.alpha = 1
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
             UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
                 self.screenOffLabel.alpha = 0
             }, completion: nil)
@@ -182,10 +181,10 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     // Helper func for JS to show or hide the keyboard
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "keyboard" {
-            if message.body as! String == "hide" {
+            if message.body as? String == "hide" {
                 self.keyboardView.isHidden = true
                 self.webView.frame.size.height = view.bounds.size.height
-            } else if message.body as! String == "show" {
+            } else if message.body as? String == "show" {
                 self.keyboardView.isHidden = false
                 self.webView.frame.size.height = view.bounds.size.height - self.keyboardView.frame.size.height
             }
@@ -212,7 +211,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
                 }
             }
             // Dumb fix but sometimes the persistence helper steals the focus from the video, so force it to play
-            self.webView.evaluateJavaScript("document.getElementsByTagName('video')[0].addEventListener('loadeddata', (e) => { for (let i = 0; i < 6; i++) { setTimeout(function() { e.target.play() }, 200 * i) } })")
+            self.webView.evaluateJavaScript("document.getElementsByTagName('video')[0].addEventListener('loadeddata', (e) => { for (let i = 0; i < 10; i++) { setTimeout(function() { e.target.play() }, 200 * i) } })")
             // Press play
             self.webView.evaluateJavaScript("document.getElementsByClassName('ytp-large-play-button')[0].click()")
             // Create close button

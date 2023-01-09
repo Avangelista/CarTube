@@ -12,10 +12,10 @@ struct Debug: View {
         Form {
             List {
                 Section {
-                    Button("Go Back") {
+                    Button("Go Back in Browser") {
                         CarPlaySingleton.shared.goBack()
                     }
-                    Button("Restart CarPlay Browser") {
+                    Button("Restart Browser") {
                         CarPlaySingleton.shared.goHome()
                     }
                     Button("Toggle CarPlay Keyboard") {

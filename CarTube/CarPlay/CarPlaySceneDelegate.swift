@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import CarPlay
-import Dynamic
-import AVFAudio
+import UIKit
 
 class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -27,7 +25,6 @@ class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneWillEnterForeground(_ scene: UIScene) {
         CarPlaySingleton.shared.setCPWindowActive(true)
-        checkIfYouTubePlaying()
         CarPlaySingleton.shared.enablePersistence()
         // if the screen is off or locked we should dim it in preparation
         if isScreenLocked() {
@@ -46,20 +43,5 @@ class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         CarPlaySingleton.shared.disablePersistence()
         CarPlaySingleton.shared.setCPWindowActive(false)
-    }
-    
-    func checkIfYouTubePlaying() {
-        getNowPlaying { result in
-            switch result {
-            case .success(let nowPlaying):
-                if nowPlaying.bundleID == "com.google.ios.youtube" {
-                    UIApplication.shared.confirmAlert(title: "Video Detected", body: "Looks like you were watching a video on the YouTube app:\n\(nowPlaying.title) - \(nowPlaying.artist)\nDo you want to try to play it on CarPlay?", onOK: {
-                        CarPlaySingleton.shared.searchVideo("\(nowPlaying.title) \(nowPlaying.artist)")
-                    }, noCancel: false, window: .carPlay)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 }

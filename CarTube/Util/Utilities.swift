@@ -33,7 +33,6 @@ func exitGracefully() {
 
 /// Register a specified function to be run when the screen turns off
 func registerForScreenOffNotification(callback: @escaping () -> Void) {
-    //        notify_register_dispatch("com.apple.springboard.lockstate", &notify_token, DispatchQueue.main, { token in
     var notify_token: Int32 = 0
     notify_register_dispatch("com.apple.springboard.hasBlankedScreen", &notify_token, DispatchQueue.main, { token in
         var state: Int64 = 0

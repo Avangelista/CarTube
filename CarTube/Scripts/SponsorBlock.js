@@ -52,7 +52,6 @@
              console.log("SHA256 hash: " + vidsha256);
              segurl = 'https://' + inst + '/api/skipSegments/' + vidsha256.substring(0, 4) + "?categories=" + encodeURIComponent(JSON.stringify(shuffle(cat)));
          }
-         console.log(segurl + " me here");
 
          const resp = await (async function () {
              const response = await fetch(segurl, {

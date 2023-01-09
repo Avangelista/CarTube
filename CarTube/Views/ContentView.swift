@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import Dynamic
-import MediaPlayer
-import CoreFoundation
 
 struct ContentView: View {
     
@@ -41,8 +38,9 @@ struct ContentView: View {
 
                 }.listRowBackground(Color.clear)
                 Section {
-                    TextField("YouTube URL", text: $urlString)
+                    TextField("YouTube URL", text: $urlString, onCommit: { playVideo() })
                     Button("Play on CarPlay") {
+                        hideKeyboard()
                         playVideo()
                     }
                 }
@@ -86,6 +84,12 @@ struct ContentView: View {
                 }
             }
         }
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

@@ -5,8 +5,7 @@
 //  Created by Rory Madden on 20/12/22.
 //
 
-import Foundation
-import CarPlay
+import UIKit
 import Dynamic
 
 class CarPlaySingleton {
@@ -121,5 +120,20 @@ class CarPlaySingleton {
     
     func removeCPVC() {
         self.controller = nil
+    }
+    
+    func checkIfYouTubePlaying() {
+        getNowPlaying { result in
+            switch result {
+            case .success(let nowPlaying):
+                if nowPlaying.bundleID == "com.google.ios.youtube" {
+                    UIApplication.shared.confirmAlert(title: "\(nowPlaying.title)", body: "Looks like you were watching a video on the YouTube app. Do you want to try to play it on CarPlay?", onOK: {
+                        CarPlaySingleton.shared.searchVideo("\(nowPlaying.title) \(nowPlaying.artist)")
+                    }, noCancel: false, window: .carPlay)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
