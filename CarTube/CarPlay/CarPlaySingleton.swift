@@ -50,7 +50,7 @@ class CarPlaySingleton {
             if isAutoBrightnessEnabled() {
                 setAutoBrightness(false)
             }
-            setScreenBrightness(0.01)
+            setScreenBrightness(0.0001)
         }
     }
     

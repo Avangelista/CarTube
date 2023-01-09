@@ -196,9 +196,6 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let url = webView.url else { goHome(); return }
         
-        // idk
-        self.webView.evaluateJavaScript("let metaTag = document.getElementsByTagName('meta')[0]; const metaContent = metaTag.getAttribute('content'); if (metaContent === '') { metaTag.setAttribute('content', 'user-scalable=no') } else { metaContent += ', user-scalable=no'; metaTag.setAttribute('content', metaContent) }")
-        
         // Check we're on an embedded video
         if url.absoluteString.contains(YT_EMBED) {
             // Check for errors playing video (e.g. if the uploader has disabled embedding)

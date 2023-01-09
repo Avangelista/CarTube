@@ -31,16 +31,15 @@ func exitGracefully() {
     }
 }
 
-/// Register a specified function to be run when the screen locks
-func registerForLockNotification(callback: @escaping () -> Void) {
+/// Register a specified function to be run when the screen turns off
+func registerForScreenOffNotification(callback: @escaping () -> Void) {
+    //        notify_register_dispatch("com.apple.springboard.lockstate", &notify_token, DispatchQueue.main, { token in
     var notify_token: Int32 = 0
-    notify_register_dispatch("com.apple.springboard.lockstate", &notify_token, DispatchQueue.main, { token in
+    notify_register_dispatch("com.apple.springboard.hasBlankedScreen", &notify_token, DispatchQueue.main, { token in
         var state: Int64 = 0
         notify_get_state(token, &state)
-        let deviceLocked = state == 1
-        let brightness = getScreenBrightness()
-        if deviceLocked && brightness == 0 {
-//        if deviceLocked {
+        let screenOff = state == 1
+        if screenOff {
             callback()
         }
     })
@@ -115,7 +114,8 @@ func isAutoBrightnessEnabled() -> Bool {
     if keyExists.boolValue {
         return enabled
     }
-    return false
+    // if there is no key, the default state is On
+    return true
 }
 
 /// Retrieve brightness from settings, as this will return the saved value even with the screen off
@@ -129,7 +129,8 @@ func getSettingsBrightness() -> Float {
     } else if let brightness2 = CFPreferencesCopyAppValue(brightnessKey2, springboard) as? Float {
         return brightness2
     }
-    return 0
+    // safe default value
+    return 0.5
 }
 
 /// Enable or disable auto-brightness
@@ -148,15 +149,19 @@ func setAutoBrightness(_ on: Bool) {
 /// Get information on the currently playing song
 func getNowPlaying(completion: @escaping (Result<(title: String, artist: String, bundleID: String), Error>) -> Void) {
     let bundle = CFBundleCreate(kCFAllocatorDefault, NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MediaRemote.framework"))
-
+    
     guard let MRMediaRemoteGetNowPlayingInfoPointer = CFBundleGetFunctionPointerForName(bundle, "MRMediaRemoteGetNowPlayingInfo" as CFString) else {
         completion(.failure("Error"))
         return
     }
     typealias MRMediaRemoteGetNowPlayingInfoFunction = @convention(c) (DispatchQueue, @escaping ([String: Any]) -> Void) -> Void
     let MRMediaRemoteGetNowPlayingInfo = unsafeBitCast(MRMediaRemoteGetNowPlayingInfoPointer, to: MRMediaRemoteGetNowPlayingInfoFunction.self)
-
+    
     MRMediaRemoteGetNowPlayingInfo(DispatchQueue.main, { (information) in
+        if !information.keys.contains("kMRMediaRemoteNowPlayingInfoClientPropertiesData") {
+            completion(.failure("Error getting bundle"))
+            return
+        }
         let bundleInfo = Dynamic._MRNowPlayingClientProtobuf.initWithData(information["kMRMediaRemoteNowPlayingInfoClientPropertiesData"])
         guard let title = information["kMRMediaRemoteNowPlayingInfoTitle"] as? String else {
             completion(.failure("Error getting title"))

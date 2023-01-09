@@ -13,8 +13,8 @@ struct CarTubeApp: App {
         registerDefaults()
         
         if UserDefaults.standard.bool(forKey: "LockScreenDimmingOn") {
-            CarPlaySingleton.shared.saveInitialBrightness()
-            registerForLockNotification {
+            registerForScreenOffNotification {
+                CarPlaySingleton.shared.saveInitialBrightness()
                 CarPlaySingleton.shared.showScreenOffWarning()
                 CarPlaySingleton.shared.setLowBrightness()
             }

@@ -38,7 +38,7 @@ struct ContentView: View {
                     Text("CarTube").fontWeight(.bold).font(.system(size: 20))
                     Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")").fontWeight(.light).font(.system(size: 12))
                     Text("Avangelista").fontWeight(.light).font(.system(size: 12))
-                    
+
                 }.listRowBackground(Color.clear)
                 Section {
                     TextField("YouTube URL", text: $urlString)

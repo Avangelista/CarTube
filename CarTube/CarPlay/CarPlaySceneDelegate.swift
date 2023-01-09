@@ -31,6 +31,7 @@ class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
         CarPlaySingleton.shared.enablePersistence()
         // if the screen is off or locked we should dim it in preparation
         if isScreenLocked() {
+            CarPlaySingleton.shared.saveInitialBrightness()
             if getScreenBrightness() == 0 {
                 CarPlaySingleton.shared.showScreenOffWarning()
             }
@@ -43,8 +44,8 @@ class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isScreenLocked() {
             CarPlaySingleton.shared.restoreBrightness()
         }
-        CarPlaySingleton.shared.setCPWindowActive(false)
         CarPlaySingleton.shared.disablePersistence()
+        CarPlaySingleton.shared.setCPWindowActive(false)
     }
     
     func checkIfYouTubePlaying() {
@@ -52,7 +53,7 @@ class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
             switch result {
             case .success(let nowPlaying):
                 if nowPlaying.bundleID == "com.google.ios.youtube" {
-                    UIApplication.shared.confirmAlert(title: "Video Detected", body: "Looks like you're watching a video on the YouTube app. Do you want to try to play it on CarPlay?", onOK: {
+                    UIApplication.shared.confirmAlert(title: "Video Detected", body: "Looks like you were watching a video on the YouTube app:\n\(nowPlaying.title) - \(nowPlaying.artist)\nDo you want to try to play it on CarPlay?", onOK: {
                         CarPlaySingleton.shared.searchVideo("\(nowPlaying.title) \(nowPlaying.artist)")
                     }, noCancel: false, window: .carPlay)
                 }

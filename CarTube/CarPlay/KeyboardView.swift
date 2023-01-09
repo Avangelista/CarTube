@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Dynamic
 
 enum KeyboardMode {
     case letters
