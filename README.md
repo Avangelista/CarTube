@@ -16,13 +16,14 @@
 
 ## Known Issues
 - Videos where the uploader has disabled embedding unfortunately will not work
+- Shorts can be a bit finnicky
 - Sometimes autoplay may not work, just hit the play button if you get a black screen
-- Possible issues with being signed out very quickly
-- "Play on CarPlay" share extension works everywhere... except the YT app
-  - oh well YT share menu sucks anyway, it's faster to copy the link
+- "Play on CarPlay" share extension works everywhere except the YT app
+  - Oh well, YT share menu sucks anyway, it's faster to copy the link
 - Possible issues from activating Siri inside the app, nothing major, just may break the screen persistence helper
 
 ## Credits
 - [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
 - [Simple Sponsor Skipper](https://greasyfork.org/en/scripts/453320-simple-sponsor-skipper) - GNU AGPLv3
+- [NoSleep.js](https://github.com/richtr/NoSleep.js/) - MIT
 - [Various from sourcelocation](https://github.com/sourcelocation) - GPLv3
