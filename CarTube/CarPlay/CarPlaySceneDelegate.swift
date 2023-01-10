@@ -44,8 +44,4 @@ class CarPlaySceneDelegate: UIResponder, UIWindowSceneDelegate {
         CarPlaySingleton.shared.disablePersistence()
         CarPlaySingleton.shared.setCPWindowActive(false)
     }
-    
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        exit(0)
-    }
 }
