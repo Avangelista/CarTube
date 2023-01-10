@@ -84,7 +84,6 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         noSleepView.load(URLRequest(url: URL(string: "about:blank")!))
         view.addSubview(noSleepView)
         noSleepView.isHidden = true
-//        CarPlaySingleton.shared.enablePersistence()
         
         // Add a view for our keyboard
         let keyboardController = UIHostingController(rootView: KeyboardView(width: view.bounds.width))
@@ -116,6 +115,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     }
     
     func enablePersistence() {
+        // I don't love using timers, I'll fix this up later with play/pause event listeners
         if timer == nil {
             self.noSleepView.evaluateJavaScript("noSleep.enable()")
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
@@ -148,6 +148,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     
     // Send a backspace to the web view
     func backspaceInput() {
+        // not recommended, but works
         self.webView.evaluateJavaScript("document.execCommand('delete')")
     }
     

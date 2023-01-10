@@ -15,7 +15,7 @@ struct HowTo: View {
         Form {
             List {
                 Section {
-                    Text("Get in your car, plug in your phone, and start CarTube on CarPlay. It will ask you to tap your phone once to wake the screen, but that's all you'll have to do. Enjoy a full-feature YouTube experience in the car!\n\nUsing the app on CarPlay requires your phone screen to be on at all times. Don't worry, it'll do this automatically. CarTube will keep your phone screen on with your Lock Screen dimmed, and will let you know if there's anything else you need to do.\n\nYou do not need to have this app open to run CarTube on CarPlay.")
+                    Text("Get in your car, plug in your phone, and start CarTube on CarPlay. It may ask you to tap your phone once to wake the screen, but that's all you have to do. Enjoy a full-feature YouTube experience in the car!\n\nUsing the app on CarPlay requires your phone screen to be on at all times. Don't worry, it'll do this automatically. CarTube will keep your phone screen on with your Lock Screen dimmed, and will let you know if there's anything else you need to do.\n\nYou do not need to have this app open to run CarTube on CarPlay.")
                 }
                 Section {
                     Button("View Source on GitHub") {

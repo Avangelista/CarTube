@@ -127,7 +127,7 @@ class CarPlaySingleton {
             switch result {
             case .success(let nowPlaying):
                 if nowPlaying.bundleID == "com.google.ios.youtube" {
-                    UIApplication.shared.confirmAlert(title: "\(nowPlaying.title)", body: "Looks like you were watching a video on the YouTube app. Do you want to try to play it on CarPlay?", onOK: {
+                    UIApplication.shared.confirmAlert(title: "\(nowPlaying.title) - \(nowPlaying.artist)", body: "You were watching this video on the YouTube app. Play it on CarPlay?", onOK: {
                         CarPlaySingleton.shared.searchVideo("\(nowPlaying.title) \(nowPlaying.artist)")
                     }, noCancel: false, window: .carPlay)
                 }
