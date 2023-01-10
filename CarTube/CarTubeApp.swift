@@ -56,7 +56,7 @@ struct CarTubeApp: App {
                 
                 if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     if (json["tag_name"] as? String)?.compare(version, options: .numeric) == .orderedDescending {
-                        UIApplication.shared.confirmAlert(title: "Update Available", body: "A new version of CarTube is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?", onOK: {
+                        UIApplication.shared.confirmAlert(title: "Update Available", body: "A new version of CarTube is available.\n\(json["body"] as? String ?? "Updating is recommended to avoid bugs.")\nWould you like to view the releases page?", onOK: {
                             UIApplication.shared.open(URL(string: "https://github.com/Avangelista/CarTube/releases/latest")!)
                         }, noCancel: false, window: .main)
                     }
