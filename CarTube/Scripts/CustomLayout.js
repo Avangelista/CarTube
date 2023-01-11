@@ -30,6 +30,9 @@ if (location.href.toString().includes("youtube.com/embed")) {
         .ytp-cued-thumbnail-overlay {
             display: none;
         }
+        .iv-branding {
+            display: none;
+        }
     `
     head.appendChild(css);
 } else if (location.href.toString().includes("youtube.com")) {
