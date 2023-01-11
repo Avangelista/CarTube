@@ -36,6 +36,9 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         if sponsorBlockOn {
             enabledScripts.append("SponsorBlock")
         }
+        
+        // Add smooth scrolling for unsupported versions
+        enabledScripts.append("SmoothScroll")
 
         // Add our custom CSS and JS
         enabledScripts.append("CustomLayout")
@@ -166,7 +169,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     func loadUrl(_ urlString: String) {
         let youtubeURL = URL(string: urlString)!
         var youtubeRequest = URLRequest(url: youtubeURL)
-        youtubeRequest.setValue("https://www.youtube.com", forHTTPHeaderField: "Referer")
+        youtubeRequest.setValue(YT_HOME, forHTTPHeaderField: "Referer")
         webView.load(youtubeRequest)
     }
     

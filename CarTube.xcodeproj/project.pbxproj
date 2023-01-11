@@ -30,6 +30,7 @@
 		259385A52961A4BB0029C763 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259385A42961A4BB0029C763 /* KeyboardView.swift */; };
 		25A2A5932967917B004A9AB1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A5922967917B004A9AB1 /* Debug.swift */; };
 		25A2A59529679BF2004A9AB1 /* HowTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A59429679BF2004A9AB1 /* HowTo.swift */; };
+		25D7D7DB296E69B700EF4099 /* SmoothScroll.js in Resources */ = {isa = PBXBuildFile; fileRef = 25D7D7DA296E68FF00EF4099 /* SmoothScroll.js */; };
 		25EED73A295F05AA00C0DF56 /* CustomLayout.js in Resources */ = {isa = PBXBuildFile; fileRef = 25EED739295F059A00C0DF56 /* CustomLayout.js */; };
 		25F18067295EC2A5007B9940 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 25F18066295EC2A5007B9940 /* Dynamic */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		259385A42961A4BB0029C763 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		25A2A5922967917B004A9AB1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		25A2A59429679BF2004A9AB1 /* HowTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowTo.swift; sourceTree = "<group>"; };
+		25D7D7DA296E68FF00EF4099 /* SmoothScroll.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = SmoothScroll.js; sourceTree = "<group>"; };
 		25EED739295F059A00C0DF56 /* CustomLayout.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = CustomLayout.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 		250B50EF2953D2F600397038 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				25D7D7DA296E68FF00EF4099 /* SmoothScroll.js */,
 				258737892964EA02009EAA2A /* NoSleepEnable.js */,
 				250B50F12953D2F600397038 /* SponsorBlock.js */,
 				25EED739295F059A00C0DF56 /* CustomLayout.js */,
@@ -315,6 +318,7 @@
 				250B50F32953D2F600397038 /* SponsorBlock.js in Resources */,
 				250B50F52953D37A00397038 /* Assets.xcassets in Resources */,
 				25EED73A295F05AA00C0DF56 /* CustomLayout.js in Resources */,
+				25D7D7DB296E69B700EF4099 /* SmoothScroll.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
