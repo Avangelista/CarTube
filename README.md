@@ -15,7 +15,8 @@
   - If you were watching something on the YouTube app and then get in the car, it'll pop up on CarTube
 
 ## Known Issues
-- Videos where the uploader has disabled embedding unfortunately will not work
+- Playlists will only play the first video
+- Does not appear to work if not installed with TrollStore on officially supported versions
 - Shorts can be a bit finnicky
 - Sometimes autoplay may not work, just hit the play button if you get a black screen
 - "Play on CarPlay" share extension works everywhere except the YT app
