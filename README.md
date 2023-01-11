@@ -27,4 +27,5 @@
 - [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
 - [Simple Sponsor Skipper](https://greasyfork.org/en/scripts/453320-simple-sponsor-skipper) - GNU AGPLv3
 - [NoSleep.js](https://github.com/richtr/NoSleep.js/) - MIT
+- [Smooth Scroll behavior polyfill](https://github.com/iamdustan/smoothscroll) - MIT
 - [Various from sourcelocation](https://github.com/sourcelocation) - GPLv3
