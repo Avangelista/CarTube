@@ -164,8 +164,10 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     
     // Load a string as a URL into the web view
     func loadUrl(_ urlString: String) {
-        let url = URL(string: urlString)!
-        webView.load(URLRequest(url: url))
+        let youtubeURL = URL(string: urlString)!
+        var youtubeRequest = URLRequest(url: youtubeURL)
+        youtubeRequest.setValue("https://www.youtube.com", forHTTPHeaderField: "Referer")
+        webView.load(youtubeRequest)
     }
     
     // Show or hide the keyboard
@@ -202,7 +204,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             self.webView.evaluateJavaScript("document.getElementsByClassName('ytp-error').length") { (result, error) in
                 if error == nil {
                     if let length = result as? Int, length != 0 {
-                        UIApplication.shared.alert(body: "This video can't be played. It's likely the uploader disabled embedding.", window: .carPlay)
+                        UIApplication.shared.alert(body: "This video can't be played.", window: .carPlay)
                         self.goHome()
                         return
                     }
