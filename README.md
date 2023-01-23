@@ -10,7 +10,7 @@
 - Block ads
 - Skip sponsored segments with SponsorBlock
 - Bypass age restriction
-- Swipe back and forward to go back and forward, pull to refresh
+- Swipe back and forward anywhere to go back and forward
 - System integrations:
   - "Play on CarPlay" share extension
   - Instant paste of any copied YouTube URLs
