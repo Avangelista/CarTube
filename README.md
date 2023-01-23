@@ -21,7 +21,7 @@
 - [Simple YouTube Age Restriction Bypass](https://github.com/zerodytrash/Simple-YouTube-Age-Restriction-Bypass/) - MIT
 - [Simple Sponsor Skipper](https://greasyfork.org/en/scripts/453320-simple-sponsor-skipper) - GNU AGPLv3
 - [AutoHook](https://gist.github.com/JohnCoates/c0d77f130d033b206367db480f7c18ae)
-- [Open in Yatee](https://github.com/yattee/yattee/tree/main/Open%20in%20Yattee) - GNU AGPLv3
+- [Open in Yattee](https://github.com/yattee/yattee/tree/main/Open%20in%20Yattee) - GNU AGPLv3
 - [NoSleep.js](https://github.com/richtr/NoSleep.js/) - MIT
 - [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
 - [Various from sourcelocation](https://github.com/sourcelocation) - GPLv3
