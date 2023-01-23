@@ -21,9 +21,6 @@ struct Debug: View {
                     Button("Toggle CarPlay Keyboard") {
                         CarPlaySingleton.shared.toggleKeyboard()
                     }
-                    Button("Hide Bugged Keyboard Bar") {
-                        UIApplication.shared.alert(title: "Done", body: "Bugged keyboard bar hidden (hopefully).", window: .carPlay)
-                    }
                 }
             }
         }.navigationBarTitle("Debug", displayMode: .inline)

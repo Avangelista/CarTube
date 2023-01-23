@@ -1,10 +1,3 @@
-// Disable focus zoom on elements
-let meta = document.createElement('meta')
-meta.name = 'viewport'
-meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-const head = document.head
-head.appendChild(meta)
-
 const isTextInput = el => el.tagName === "TEXTAREA" || (el.tagName === "INPUT" && (el.type === "text" || el.type === "email" || el.type === "search" || el.type === "url" || el.type === "password"));
 
 // Focusing a text field

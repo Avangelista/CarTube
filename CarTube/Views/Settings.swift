@@ -28,11 +28,16 @@ struct Settings: View {
     var body: some View {
         Form {
             List {
-//                Section(footer: Text("Set the zoom level for the YouTube UI.")) {
-//                    Incrementer(value: $zoom)
-//                }
-                Section(footer: Text("Block ads in videos. May not work as desired.")) {
-                    Toggle(isOn: $ageRestrictBypassOn) {
+                Section(footer: Text("The app will quit.")) {
+                    Button("Save Settings") {
+                        saveSettings()
+                    }
+                }
+                Section(footer: Text("Set the zoom level for the YouTube UI.")) {
+                    Incrementer(value: $zoom)
+                }
+                Section(footer: Text("Block ads in videos. If you experience issues with playback, try disabling this option.")) {
+                    Toggle(isOn: $adBlockerOn) {
                         Text("Block Ads (Beta)")
                     }
                 }
@@ -54,11 +59,6 @@ struct Settings: View {
                 Section(footer: Text("RECOMMENDED.\nDim the Lock Screen while the app is running.")) {
                     Toggle(isOn: $lockScreenDimmingOn) {
                         Text("Lock Screen Dimming")
-                    }
-                }
-                Section(footer: Text("The app will quit.")) {
-                    Button("Save Settings") {
-                        saveSettings()
                     }
                 }
             }

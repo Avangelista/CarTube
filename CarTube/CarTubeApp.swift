@@ -43,10 +43,10 @@ struct CarTubeApp: App {
     
     func registerDefaults() {
         UserDefaults.standard.register(defaults: [
-            "SponsorBlockOn": true,
-            "AgeRestrictBypassOn": true,
-            "AdBlockerOn": true,
-            "Zoom": 100,
+            "SponsorBlockOn": false,
+            "AgeRestrictBypassOn": false,
+            "AdBlockerOn": false,
+            "Zoom": 60,
             "ScreenPersistenceOn": true,
             "LockScreenDimmingOn": true
         ])

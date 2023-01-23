@@ -54,10 +54,10 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
             webConfiguration.userContentController.addUserScript(userScript)
         }
 
-        // Apply custom zoom
-//        let zoomScript = "if (!location.href.toString().includes('youtube.com/embed') && location.href.toString().includes('youtube.com')) { document.body.style.zoom = '\(UserDefaults.standard.integer(forKey: "Zoom"))%' }";
-//        let zoomUserScript = WKUserScript(source: zoomScript, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
-//        webConfiguration.userContentController.addUserScript(zoomUserScript)
+        // Apply custom zoom & hide the open app button
+        let zoomScript = "let meta = document.createElement('meta'); meta.name = 'viewport'; meta.content = 'initial-scale=\(Double(UserDefaults.standard.integer(forKey: "Zoom")) / 100.0), maximum-scale=\(Double(UserDefaults.standard.integer(forKey: "Zoom")) / 100.0), user-scalable=no'; const head = document.head; head.appendChild(meta); let css = document.createElement('style'); css.type = 'text/css'; css.innerHTML = '.open-app-button { display: none; }'; head.appendChild(css);"
+        let zoomUserScript = WKUserScript(source: zoomScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        webConfiguration.userContentController.addUserScript(zoomUserScript)
 
         webConfiguration.userContentController.add(self, name: "keyboard") // allow JS to activate the keyboard
         webConfiguration.allowsInlineMediaPlayback = true
@@ -66,11 +66,16 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         webConfiguration.requiresUserActionForMediaPlayback = false
         webView = WKWebView(frame: view.frame, configuration: webConfiguration)
         webView.allowsLinkPreview = false
-//        webView.allowsBackForwardNavigationGestures = true
+        webView.allowsBackForwardNavigationGestures = false
         webView.scrollView.minimumZoomScale = 1
         webView.scrollView.maximumZoomScale = 1
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        
+        // Add recogniser for refreshing
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadWebView(_:)), for: .valueChanged)
+        webView.scrollView.addSubview(refreshControl)
         
         // Add recognisers for back and forward
         let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(recognizer:)))
@@ -137,6 +142,12 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         }
     }
     
+    // Refresh webpage
+    @objc func reloadWebView(_ sender: UIRefreshControl) {
+        webView.reload()
+        sender.endRefreshing()
+    }
+    
     // Back and forward navigation
     @objc private func handleSwipe(recognizer: UISwipeGestureRecognizer) {
         if (recognizer.direction == .left) {
@@ -144,6 +155,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
                 webView.goForward()
                 
                 let arrowImageView = UIImageView(image: UIImage(systemName: "arrow.right"))
+                arrowImageView.isUserInteractionEnabled = false
                 arrowImageView.tintColor = .white
                 arrowImageView.frame.size.width = arrowImageView.frame.size.width * 2
                 arrowImageView.frame.size.height = arrowImageView.frame.size.height * 2
@@ -172,6 +184,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
                 webView.goBack()
                 
                 let arrowImageView = UIImageView(image: UIImage(systemName: "arrow.left"))
+                arrowImageView.isUserInteractionEnabled = false
                 arrowImageView.tintColor = .white
                 arrowImageView.frame.size.width = arrowImageView.frame.size.width * 2
                 arrowImageView.frame.size.height = arrowImageView.frame.size.height * 2
@@ -255,7 +268,7 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     // Load a string as a URL into the web view
     func loadUrl(_ urlString: String) {
         let youtubeURL = URL(string: urlString)!
-        var youtubeRequest = URLRequest(url: youtubeURL)
+        let youtubeRequest = URLRequest(url: youtubeURL)
 //        youtubeRequest.setValue(YT_HOME, forHTTPHeaderField: "Referer")
         webView.load(youtubeRequest)
     }
