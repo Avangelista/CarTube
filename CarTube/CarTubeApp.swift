@@ -46,7 +46,7 @@ struct CarTubeApp: App {
             "SponsorBlockOn": false,
             "AgeRestrictBypassOn": false,
             "AdBlockerOn": false,
-            "Zoom": 60,
+            "Zoom": 80,
             "ScreenPersistenceOn": true,
             "LockScreenDimmingOn": true
         ])

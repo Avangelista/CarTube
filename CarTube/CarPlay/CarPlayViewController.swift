@@ -73,9 +73,9 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
         webView.uiDelegate = self
         
         // Add recogniser for refreshing
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(reloadWebView(_:)), for: .valueChanged)
-        webView.scrollView.addSubview(refreshControl)
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(reloadWebView(_:)), for: .valueChanged)
+//        webView.scrollView.addSubview(refreshControl)
         
         // Add recognisers for back and forward
         let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(recognizer:)))
@@ -143,10 +143,10 @@ class CarPlayViewController: UIViewController, WKNavigationDelegate, WKUIDelegat
     }
     
     // Refresh webpage
-    @objc func reloadWebView(_ sender: UIRefreshControl) {
-        webView.reload()
-        sender.endRefreshing()
-    }
+//    @objc func reloadWebView(_ sender: UIRefreshControl) {
+//        webView.reload()
+//        sender.endRefreshing()
+//    }
     
     // Back and forward navigation
     @objc private func handleSwipe(recognizer: UISwipeGestureRecognizer) {
