@@ -6,26 +6,30 @@
 //
 
 import UIKit
-import Dynamic
+import AVFoundation
 
 class CarPlaySingleton {
     static let shared = CarPlaySingleton()
-    private var window: UIWindow?
     private var controller: CarPlayViewController?
     private var cachedVideo: String?
     private var initialBrightness: Float?
     private var initialAutoBrightness: Bool?
     private var isCPWindowActive: Bool = false
+    private var askAboutLastPlaying: Bool = true
     
     /// Load a YouTube URL string into the player
     func loadUrl(_ urlString: String) {
-        if (Dynamic.AVExternalDevice.currentCarPlayExternalDevice.asAnyObject == nil) {
+        if AVExternalDevice.currentCarPlay() == nil {
             UIApplication.shared.alert(body: "CarPlay not connected.", window: .main)
         } else if controller == nil {
             self.cachedVideo = urlString
         } else {
             controller?.loadUrl(urlString)
         }
+    }
+    
+    func dontAskAboutLastPlaying() {
+        self.askAboutLastPlaying = false
     }
     
     /// Search for a YouTube video in the player
@@ -123,6 +127,7 @@ class CarPlaySingleton {
     }
     
     func checkIfYouTubePlaying() {
+        if !askAboutLastPlaying { return }
         getNowPlaying { result in
             switch result {
             case .success(let nowPlaying):

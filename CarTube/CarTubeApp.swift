@@ -13,8 +13,8 @@ struct CarTubeApp: App {
         registerDefaults()
         
         if UserDefaults.standard.bool(forKey: "LockScreenDimmingOn") {
+            CarPlaySingleton.shared.saveInitialBrightness()
             registerForScreenOffNotification {
-                CarPlaySingleton.shared.saveInitialBrightness()
                 CarPlaySingleton.shared.showScreenOffWarning()
                 CarPlaySingleton.shared.setLowBrightness()
             }
@@ -32,6 +32,7 @@ struct CarTubeApp: App {
                     UIApplication.shared.alert(body: "Invalid YouTube link.", window: .main)
                 } else {
                     let youtube = YT_EMBED + id
+                    CarPlaySingleton.shared.dontAskAboutLastPlaying()
                     CarPlaySingleton.shared.loadUrl(youtube)
                 }
             }.onAppear {
@@ -43,7 +44,9 @@ struct CarTubeApp: App {
     func registerDefaults() {
         UserDefaults.standard.register(defaults: [
             "SponsorBlockOn": true,
-            "Zoom": 80,
+            "AgeRestrictBypassOn": true,
+            "AdBlockerOn": true,
+            "Zoom": 100,
             "ScreenPersistenceOn": true,
             "LockScreenDimmingOn": true
         ])

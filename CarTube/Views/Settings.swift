@@ -12,9 +12,13 @@ struct Settings: View {
     @State private var lockScreenDimmingOn = UserDefaults.standard.bool(forKey: "LockScreenDimmingOn")
     @State private var zoom = UserDefaults.standard.integer(forKey: "Zoom")
     @State private var sponsorBlockOn = UserDefaults.standard.bool(forKey: "SponsorBlockOn")
+    @State private var ageRestrictBypassOn = UserDefaults.standard.bool(forKey: "AgeRestrictBypassOn")
+    @State private var adBlockerOn = UserDefaults.standard.bool(forKey: "AdBlockerOn")
     
     func saveSettings() {
         UserDefaults.standard.set(sponsorBlockOn, forKey: "SponsorBlockOn")
+        UserDefaults.standard.set(ageRestrictBypassOn, forKey: "AgeRestrictBypassOn")
+        UserDefaults.standard.set(adBlockerOn, forKey: "AdBlockerOn")
         UserDefaults.standard.set(zoom, forKey: "Zoom")
         UserDefaults.standard.set(screenPersistenceOn, forKey: "ScreenPersistenceOn")
         UserDefaults.standard.set(lockScreenDimmingOn, forKey: "LockScreenDimmingOn")
@@ -24,12 +28,22 @@ struct Settings: View {
     var body: some View {
         Form {
             List {
-                Section(footer: Text("Set the zoom level for the YouTube UI.")) {
-                    Incrementer(value: $zoom)
+//                Section(footer: Text("Set the zoom level for the YouTube UI.")) {
+//                    Incrementer(value: $zoom)
+//                }
+                Section(footer: Text("Block ads in videos. May not work as desired.")) {
+                    Toggle(isOn: $ageRestrictBypassOn) {
+                        Text("Block Ads (Beta)")
+                    }
                 }
                 Section(footer: Text("Block sponsored segments in videos.")) {
                     Toggle(isOn: $sponsorBlockOn) {
                         Text("SponsorBlock")
+                    }
+                }
+                Section(footer: Text("Bypass age restriction in videos.")) {
+                    Toggle(isOn: $ageRestrictBypassOn) {
+                        Text("Age Restriction Bypass")
                     }
                 }
                 Section(footer: Text("RECOMMENDED.\nCarTube requires the phone screen to be on at all times.\nThe Screen Persistence Helper will keep the phone screen on, even on the Lock Screen.")) {

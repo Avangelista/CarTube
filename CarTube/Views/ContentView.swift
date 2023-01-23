@@ -6,6 +6,11 @@
 //
 
 import SwiftUI
+import WebKit
+
+// hacky, but mark any SwiftUI controller for easier identification later
+protocol SwiftUIController: AnyObject {}
+extension UIHostingController: SwiftUIController {}
 
 struct ContentView: View {
     
@@ -16,13 +21,14 @@ struct ContentView: View {
     
     func playVideo() {
         if let urlID = extractYouTubeVideoID(urlString) {
+            CarPlaySingleton.shared.dontAskAboutLastPlaying()
             let youtube = YT_EMBED + urlID
             CarPlaySingleton.shared.loadUrl(youtube)
         } else {
             UIApplication.shared.alert(body: "Invalid YouTube link.", window: .main)
         }
     }
-    
+
     var body: some View {
         NavigationView {
             List {

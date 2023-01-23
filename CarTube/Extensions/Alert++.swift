@@ -47,26 +47,11 @@ extension UIApplication {
     }
     
     func getPreferredController(window: WindowType) -> UIViewController? {
-        if let controller = self.windows[0].rootViewController {
-            if controller is CarPlayViewController {
-                if window == .carPlay {
-                    return controller
-                }
-            } else {
-                if window == .main {
-                    return controller
-                }
-            }
-        }
-        if self.windows.count > 1, let controller = self.windows[1].rootViewController {
-            if controller is CarPlayViewController {
-                if window == .carPlay {
-                    return controller
-                }
-            } else {
-                if window == .main {
-                    return controller
-                }
+        for w in self.windows {
+            if w.rootViewController is SwiftUIController && window == .main {
+                return w.rootViewController
+            } else if w.rootViewController is CarPlayViewController && window == .carPlay {
+                return w.rootViewController
             }
         }
         return nil
