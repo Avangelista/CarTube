@@ -7,8 +7,10 @@
 ## Features
 - A full-feature app for YouTube - browse, search, watch videos and more in the car!
 - Works on any device supporting [TrollStore](https://github.com/opa334/TrollStore), no jailbreak required
-- No ads
+- Block ads
 - Skip sponsored segments with SponsorBlock
+- Bypass age restriction
+- Swipe back and forward to go back and forward, pull to refresh
 - System integrations:
   - "Play on CarPlay" share extension
   - Instant paste of any copied YouTube URLs
