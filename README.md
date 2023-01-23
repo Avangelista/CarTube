@@ -14,18 +14,12 @@
   - Instant paste of any copied YouTube URLs
   - If you were watching something on the YouTube app and then get in the car, it'll pop up on CarTube
 
-## Known Issues
-- Playlists will only play the first video
-- Does not appear to work if not installed with TrollStore on officially supported versions
-- Shorts can be a bit finnicky
-- Sometimes autoplay may not work, just hit the play button if you get a black screen
-- "Play on CarPlay" share extension works everywhere except the YT app
-  - Oh well, YT share menu sucks anyway, it's faster to copy the link
-- Possible issues from activating Siri inside the app, nothing major, just may break the screen persistence helper
-
 ## Credits
-- [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
+- [AdGuard Block YouTube Ads in Safari](https://github.com/AdguardTeam/BlockYouTubeAdsShortcut) - GPLv3
+- [Simple YouTube Age Restriction Bypass](https://github.com/zerodytrash/Simple-YouTube-Age-Restriction-Bypass/) - MIT
 - [Simple Sponsor Skipper](https://greasyfork.org/en/scripts/453320-simple-sponsor-skipper) - GNU AGPLv3
+- [AutoHook](https://gist.github.com/JohnCoates/c0d77f130d033b206367db480f7c18ae)
+- [Open in Yatee](https://github.com/yattee/yattee/tree/main/Open%20in%20Yattee) - GNU AGPLv3
 - [NoSleep.js](https://github.com/richtr/NoSleep.js/) - MIT
-- [Smooth Scroll behavior polyfill](https://github.com/iamdustan/smoothscroll) - MIT
+- [Dynamic](https://github.com/mhdhejazi/Dynamic) - Apache License 2.0
 - [Various from sourcelocation](https://github.com/sourcelocation) - GPLv3
