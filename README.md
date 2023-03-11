@@ -3,6 +3,7 @@
 </p>
 <h1 align="center">CarTube</h1>
 <p align="center">YouTube on CarPlay, no jailbreak required!</p>
+<p align="center">Supports iOS 14.0 - 15.4.1, and nothing above, ever.</p>
 
 ## Features
 - A full-feature app for YouTube - browse, search, watch videos and more in the car!
