@@ -1,3 +1,8 @@
+<h1 align="center">Supports iOS 14.0 - 15.4.1, and nothing above, ever.</h1>
+<br/>
+<br/>
+<br/>
+<br/>
 <p align="center">
   <img align="center" src='https://raw.githubusercontent.com/Avangelista/CarTube/main/Icon/CarTubeTransparent.png'>
 </p>
