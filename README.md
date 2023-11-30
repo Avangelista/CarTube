@@ -1,4 +1,4 @@
-<h1 align="center">Supports iOS 14.0 - 15.4.1, and nothing above, ever.</h1>
+<h1 align="center">Supports iOS 14.0 - 15.4.1, for now. As soon as TrollStore is available for iOS 16.6+, I will look into updating.</h1>
 <br/>
 <br/>
 <br/>
@@ -8,7 +8,7 @@
 </p>
 <h1 align="center">CarTube</h1>
 <p align="center">YouTube on CarPlay, no jailbreak required!</p>
-<p align="center">Supports iOS 14.0 - 15.4.1, and nothing above, ever.</p>
+<p align="center">Supports iOS 14.0 - 15.4.1.</p>
 
 ## Features
 - A full-feature app for YouTube - browse, search, watch videos and more in the car!
